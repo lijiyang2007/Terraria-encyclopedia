@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>地下神圣之地 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3d1a3a; color: #ff8df5; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .soul-box { border: 1px solid #ff8df5; padding: 15px; background: rgba(255, 141, 245, 0.1); margin-top: 15px; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .resource-item { background: #111; border: 1px solid #333; padding: 12px; border-radius: 4px; border-top: 2px solid #ff8df5; }
+        
+        .highlight { color: #da9100; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>地下神圣之地 (Underground Hallow)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                <p>地下神圣之地位于洞穴层，在进入<b>困难模式</b>后随着“V”字形地带生成。这里的石块会转化为<b>珍珠石</b>，并开始在墙壁上生长发光的<b>水晶碎块</b>。这里的氛围比邪恶群系更明亮，但敌怪的弹幕往往更加密集。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心产物：光明之魂</h2>
+                <div class="soul-box">
+                    在地下神圣之地击杀任何敌怪，都有 20% 的几率掉落 <span class="highlight">光明之魂 (Soul of Light)</span>。它是制作传送杖、机械召唤物和神圣类武器的核心材料。
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">关键资源</h2>
+                <div class="resource-grid">
+                    <div class="resource-item"><b>水晶碎块：</b>自然生长在珍珠石上，用于制作强力的水晶子弹、箭矢和魔法杖。</div>
+                    <div class="resource-item"><b>明胶水晶：</b>稀有生成的粉色大水晶，打破后可召唤 Boss <span class="highlight">史莱姆皇后</span>。</div>
+                    <div class="resource-item"><b>神圣钥匙：</b>极稀有掉落，用于开启地牢中的神圣箱（内含虹吸枪）。</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <ul>
+                    <li><b>混沌精：</b>能够瞬间移动的敌怪，极低概率掉落梦幻级位移神器——<b>传送杖 (Rod of Discord)</b>。</li>
+                    <li><b>附魔剑：</b>会穿墙飞行并旋转攻击，具有很高的击退抗性。</li>
+                    <li><b>照明史莱姆：</b>散发强光的史莱姆，比普通史莱姆更硬。</li>
+                    <li><b>光之木乃伊：</b>在珍珠沙区域出现，掉落光明碎块。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">地下神圣</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerUndergroundHallow.png?4dd14b" alt="Soul of Light">
+            </div>
+            <div class="infobox-row"><span class="infobox-label

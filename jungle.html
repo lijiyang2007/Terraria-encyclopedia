@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>丛林 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #2d4c1e; color: #a3ff8d; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .resource-item { background: #111; border: 1px solid #333; padding: 10px; border-radius: 4px; border-top: 2px solid #4eb037; }
+        
+        .danger-box { border: 1px solid #ff4444; padding: 15px; background: rgba(255, 68, 68, 0.05); color: #ff8d8d; margin-top: 15px; }
+        .highlight { color: #da9100; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>丛林 (Jungle)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                <p>丛林生物群系由<b>淤泥</b>和丛林草组成，通常出现在地图中远离雪原的一侧。它分为地表丛林和极其庞大的地下丛林。这里是各种剧毒生物的家园，但也隐藏着全游戏最强力的中期装备材料。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心资源</h2>
+                <div class="resource-grid">
+                    <div class="resource-item"><b style="color: #4eb037;">丛林孢子：</b>在地下发光的小绿点，是制作丛林套装和草剑的核心。</div>
+                    <div class="resource-item"><b style="color: #ffd700;">丛林神庙：</b>隐藏在深处的丛林蜥蜴建筑，包含 Boss 石巨人。</div>
+                    <div class="resource-item"><b style="color: #ff8df5;">生命果：</b><span class="highlight">肉后击败任一机械 Boss 后</span>。永久增加 5 点最大生命值。</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <ul>
+                    <li><b>丛林蝙蝠 / 飞蛾：</b>移动极快，且在高难度下会造成中毒减益。</li>
+                    <li><b>食人怪：</b>隐藏在方块后的长颈植物，具有极高的碰撞伤害。</li>
+                    <li><b>巨型飞狐：</b><span class="highlight">困难模式</span>。在夜晚出现，极具侵略性。</li>
+                    <li><b>丛林龟：</b>防御力和生命值惊人，其撞击伤害往往能瞬间秒杀脆皮职业。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">关键 Boss 触发</h2>
+                <div class="danger-box">
+                    <ul>
+                        <li><b>蜂王：</b>在地下丛林打破巨大的<b>幼虫</b>（包裹在蜂巢中）即可召唤。</li>
+                        <li><b>世纪之花：</b><span class="highlight">肉后击败所有机械 Boss 后</span>。打破随机生成的<b>世纪之花球茎</b>即可召唤。</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">丛林</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerJungle.png?c1594d" alt="Jungle">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>淤泥、丛林草、富土</span></div>
+            <div class="infobox-row"><span class="infobox-label">群系晶塔</span><span>丛林晶塔</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>极高 (充满毒素与陷阱)</span></div>
+        </aside>
+    </div>
+</body>
+</html>

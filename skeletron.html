@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>骷髅王 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #333; color: #eee; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; overflow: hidden; }
+        .infobox-img img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+        .mode-section { margin-bottom: 50px; padding: 25px; border-left: 6px solid #555; background: rgba(100, 100, 100, 0.05); }
+        .classic-border { border-color: #ffffff; }
+        .expert-border { border-color: #e282ff; }
+        .master-border { border-color: #ffaa00; }
+
+        .stat-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: #000; padding: 12px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #333; }
+        .stat-bar span { font-size: 14px; }
+        .stat-bar span b { color: #8da9ff; }
+
+        .drop-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .drop-table th, .drop-table td { border: 1px solid #333; padding: 8px 12px; text-align: left; font-size: 13px; }
+        .drop-table th { background: #222; color: #da9100; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="bosses.html" class="nav-item active">Boss</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>骷髅王 (Skeletron)</h1>
+            </header>
+            <p style="font-style: italic; color: #888; margin-bottom: 30px;">“地牢的守卫者，受诅咒的老人只有在夜晚才能解脱。”</p>
+
+            <section class="mode-section classic-border">
+                <div class="mode-header" style="color: #ffffff; font-size: 24px; margin-bottom: 15px;">经典模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 4400 (头部)</span>
+                    <span><b>伤害:</b> 32 (头部)</span>
+                    <span><b>防御:</b> 10 (头部)</span>
+                    <span><b>钱币:</b> 5 Gold</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>常规掉落</td><td>骷髅王面具 (14.29%)</td></tr>
+                        <tr><td>纪念物品</td><td>骷髅王纪念章 (10%)</td></tr>
+                        <tr><td>专家/大师专属</td><td>无</td></tr>
+                        <tr><td>专属宠物/圣物</td><td>无</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section expert-border">
+                <div class="mode-header" style="color: #e282ff; font-size: 24px; margin-bottom: 15px;">专家模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 8800 (头部)</span>
+                    <span><b>伤害:</b> 64 (头部)</span>
+                    <span><b>防御:</b> 10 (头部)</span>
+                    <span><b>钱币:</b> 12 Gold 50 Silver</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>常规掉落</td><td>骷髅王面具 (14.29%)</td></tr>
+                        <tr><td>纪念物品</td><td>骷髅王纪念章 (10%)</td></tr>
+                        <tr><td>专家/大师专属</td><td>宝藏袋 (包含骷髅王之手) (100%)</td></tr>
+                        <tr><td>专属宠物/圣物</td><td>无</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section master-border">
+                <div class="mode-header" style="color: #ffaa00; font-size: 24px; margin-bottom: 15px;">大师模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 11220 (头部)</span>
+                    <span><b>伤害:</b> 96 (头部)</span>
+                    <span><b>防御:</b> 10 (头部)</span>
+                    <span><b>钱币:</b> 12 Gold 50 Silver</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>常规掉落</td><td>骷髅王面具 (14.29%)</td></tr>
+                        <tr><td>纪念物品</td><td>骷髅王纪念章 (10%)</td></tr>
+                        <tr><td>专家/大师专属</td><td>宝藏袋 (包含骷髅王之手) (100%)</td></tr>
+                        <tr><td>专属宠物/圣物</td><td>骷髅王圣物 (100%) / 微型骷髅王 (25%)</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">骷髅王</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/0/05/Skeletron.png" alt="Skeletron">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>Boss</span></div>
+            <div class="infobox-row"><span class="infobox-label">环境</span><span>地牢入口 (夜晚)</span></div>
+            <div class="infobox-row"><span class="infobox-label">召唤物</span><span>与老人交谈 / 裁缝巫毒娃娃</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>35</span></div>
+        </aside>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>霜月 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .drop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .drop-table th, .drop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .drop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="events.html" class="nav-item active">事件</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>霜月 (Frost Moon)</h1>
+            </header>
+            <p class="quote">“霜月正在升起……”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">发生条件</h2>
+                <p>霜月是一个极其困难的波次制生存事件，通过手动召唤启动。</p>
+                <ul>
+                    <li><b>召唤物：</b>在夜晚使用由丝绸、灵气和恐惧之魂合成的 <span class="highlight">无光路灯 (Naughty Present)</span>。</li>
+                    <li><b>时间：</b>从下午 7:30 开始，到上午 4:30 结束。</li>
+                    <li><b>建议：</b>此事件的难度高于南瓜月，建议在拥有极其精良的后期装备（甚至是击败石巨人后）再尝试。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">波次与进度</h2>
+                <p>霜月共有 <span class="highlight">20 波</span>，外加一个“最终波”。</p>
+                <ul>
+                    <li><b>积分制：</b>与南瓜月类似，击败不同强度的敌怪会提供不同的点数以进入下一波。</li>
+                    <li><b>小 Boss：</b>常青树 (Everscream) 和 圣诞坦克 (Santa-NK1)。</li>
+                    <li><b>最终 Boss：</b>冰雪女王 (Ice Queen)。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">重要掉落物</h2>
+                <table class="drop-table">
+                    <thead>
+                        <tr>
+                            <th>敌怪</th>
+                            <th>重要掉落物</th>
+                            <th>类型</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>常青树</b></td><td>圣诞树剑、剃刀松、节日钩爪</td><td>近战/魔法</td></tr>
+                        <tr><td><b>圣诞坦克</b></td><td>链式机枪、精灵熔炉</td><td>远程</td></tr>
+                        <tr><td><b>冰雪女王</b></td><td>北极、雪人炮、暴雪法杖</td><td>近战/远程/魔法</td></tr>
+                        <tr><td><b>冰雪女王</b></td><td>重力球 (专家)</td><td>特殊</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">特殊奖励</h2>
+                <p>如果玩家成功达到第 15 波或更高，并在上午 4:30 存活，第二天将开启<b>圣诞节</b>季节性事件。此时所有敌怪都有概率掉落礼物，且伐木工 NPC 会出售圣诞专属装饰。</p>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">霜月</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerFrostMoon.png?e54316" alt="Frost Moon">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>手动召唤事件</span></div>
+            <div class="infobox-row"><span class="infobox-label">波次</span><span>20 波</span></div>
+            <div class="infobox-row"><span class="infobox-label">召唤物</span><span>无光路灯</span></div>
+            <div class="infobox-row"><span class="infobox-label">背景音乐</span><span>Frost Moon</span></div>
+        </aside>
+    </div>
+</body>
+</html>

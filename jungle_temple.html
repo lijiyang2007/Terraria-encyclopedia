@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>丛林神庙 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3d211a; color: #ffaa00; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .loot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .loot-item { background: #111; border: 1px solid #333; padding: 12px; border-radius: 4px; border-top: 2px solid #ffaa00; }
+        
+        .danger-box { border: 1px solid #ff4444; padding: 15px; background: rgba(255, 68, 68, 0.05); color: #ff8d8d; margin-top: 15px; }
+        .highlight { color: #da9100; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>丛林神庙 (Jungle Temple)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">进入方式</h2>
+                <p>神庙大门紧锁，玩家必须先在地下丛林击败 <span class="highlight">世纪之花 (Plantera)</span> 以获得<b>神庙钥匙</b>。神庙砖块在击败石巨人之前无法被任何提炼工具破坏（除了锯刃镐）。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心机制：石巨人</h2>
+                <p>在神庙最后的巨大房间内可以找到<b>丛林蜥蜴祭坛</b>：</p>
+                <ul>
+                    <li>消耗一个<b>丛林蜥蜴电池</b>（可在神庙箱子中找到或由敌怪掉落）。</li>
+                    <li>使用祭坛即可召唤 Boss <span class="highlight">石巨人 (Golem)</span>。</li>
+                    <li>石巨人掉落<b>锯刃镐</b>，这是玩家挖掘神庙砖块的必备工具。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">致命陷阱</h2>
+                <div class="danger-box">
+                    神庙是全游戏最危险的机关区域。包含：
+                    <ul>
+                        <li><b>尖刺球陷阱：</b>从天花板持续弹跳的铁球，伤害极高。</li>
+                        <li><b>烈焰陷阱：</b>喷射长距离火焰，造成持续燃烧。</li>
+                        <li><b>长矛陷阱：</b>垂直或水平刺出，造成多段伤害。</li>
+                        <li><b>丛林蜥蜴压力板：</b>只有玩家或敌怪踩踏才会触发，极难被肉眼发现。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <ul>
+                    <li><b>丛林蜥蜴：</b>成群结队出现，具有很强的侵略性。</li>
+                    <li><b>飞蛇：</b>在狭长走廊中快速飞行的敌怪。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">丛林神庙</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerJungleTemple.png?ee1b98" alt="Jungle Temple">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>丛林蜥蜴砖</span></div>
+            <div class="infobox-row"><span class="infobox-label">必要道具</span><span>神庙钥匙</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>最高 (末期区域)</span></div>
+        </aside>
+    </div>
+</body>
+</html>
