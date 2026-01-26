@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>史莱姆王 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3b2d26; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 180px; height: auto; }
+
+        .mode-section { margin-bottom: 40px; padding: 20px; border-left: 5px solid #555; background: rgba(255,255,255,0.03); }
+        .classic-border { border-color: #ffffff; }
+        .expert-border { border-color: #e282ff; }
+        .master-border { border-color: #ffaa00; }
+
+        .mode-header { font-size: 22px; margin-bottom: 15px; font-weight: bold; }
+        .classic-text { color: #ffffff; }
+        .expert-text { color: #e282ff; }
+        .master-text { color: #ffaa00; }
+
+        .stat-bar { display: flex; gap: 20px; background: #000; padding: 10px 15px; margin-bottom: 15px; font-size: 15px; }
+        .stat-bar span b { color: #da9100; }
+
+        .drop-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .drop-table th, .drop-table td { border: 1px solid #333; padding: 8px 12px; text-align: left; font-size: 14px; }
+        .drop-table th { background: #222; color: #da9100; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="bosses.html" class="nav-item active">Boss</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>史莱姆王 (King Slime)</h1>
+            </header>
+
+            <section class="mode-section classic-border">
+                <div class="mode-header classic-text">经典模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 2000</span>
+                    <span><b>伤害:</b> 40</span>
+                    <span><b>防御:</b> 10</span>
+                    <span><b>钱币:</b> 1 Gold</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物品</th><th>掉落率</th></tr></thead>
+                    <tbody>
+                        <tr><td>固化机</td><td>100%</td></tr>
+                        <tr><td>粘鞍</td><td>25%</td></tr>
+                        <tr><td>忍者套装 (三选一)</td><td>33.33%</td></tr>
+                        <tr><td>史莱姆钩 / 史莱姆枪 (二选一)</td><td>33.33% / 66.67%</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section expert-border">
+                <div class="mode-header expert-text">专家模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 2800</span>
+                    <span><b>伤害:</b> 64</span>
+                    <span><b>防御:</b> 10</span>
+                    <span><b>钱币:</b> 2 Gold 50 Silver</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>专家专属及强化掉落</th><th>掉落率</th></tr></thead>
+                    <tbody>
+                        <tr><td>宝藏袋 (包含皇家凝胶)</td><td>100%</td></tr>
+                        <tr><td>粘鞍 (概率翻倍)</td><td>50%</td></tr>
+                        <tr><td>忍者套装 (三选二)</td><td>每件 67%</td></tr>
+                        <tr><td>史莱姆钩 / 史莱姆枪 (二选一)</td><td>50% / 50%</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section master-border">
+                <div class="mode-header master-text">大师模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 3570</span>
+                    <span><b>伤害:</b> 96</span>
+                    <span><b>防御:</b> 10</span>
+                    <span><b>钱币:</b> 2 Gold 50 Silver</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>大师专属掉落</th><th>掉落率</th></tr></thead>
+                    <tbody>
+                        <tr><td>史莱姆王圣物</td><td>100%</td></tr>
+                        <tr><td>皇家美味 (宠物)</td><td>25%</td></tr>
+                        <tr><td>所有专家模式掉落物</td><td>100%</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">史莱姆王</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/c/c5/King_Slime.png" alt="King Slime">
+                <p style="font-size: 12px; color: #666; margin-top: 5px;">“它是所有黏滑生物的首领。”</p>
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>Boss / 史莱姆</span></div>
+            <div class="infobox-row"><span class="infobox-label">环境</span><span>森林、史莱姆雨</span></div>
+            <div class="infobox-row"><span class="infobox-label">AI 类型</span><span>史莱姆王 AI</span></div>
+            <div class="infobox-row"><span class="infobox-label">KB 抗性</span><span>100% (免疫)</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>50</span></div>
+        </aside>
+    </div>
+</body>
+</html>

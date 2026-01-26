@@ -1,0 +1,240 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    background-image: 
+        linear-gradient(335deg, #131313 23px, transparent 23px),
+        linear-gradient(155deg, #131313 23px, transparent 23px),
+        linear-gradient(335deg, #131313 23px, transparent 23px),
+        linear-gradient(155deg, #131313 23px, transparent 23px);
+    background-size: 58px 58px;
+    background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+    background-attachment: fixed;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+.wiki-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    background-color: rgba(28, 28, 34, 0.95);
+    border: 1px solid #5a443a;
+    padding: 30px;
+    color: #eee;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+h1 {
+    color: #da9100;
+    border-bottom: 2px solid #5a443a;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #8da9ff;
+    border-bottom: 1px solid #333;
+    margin-top: 30px;
+}
+
+.wiki-content {
+    display: flex;
+    gap: 20px;
+}
+
+.wiki-article {
+    flex: 3;
+    line-height: 1.8;
+}
+
+.infobox {
+    flex: 1;
+    background-color: #1a1a1a;
+    border: 1px solid #5a443a;
+    padding: 15px;
+    font-size: 14px;
+    height: fit-content;
+}
+
+.infobox-title {
+    text-align: center;
+    font-weight: bold;
+    background-color: #3b2d26;
+    padding: 5px;
+    margin: -15px -15px 15px -15px;
+    color: #da9100;
+}
+
+.infobox-data p {
+    margin: 8px 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.side-nav {
+    position: fixed;   
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: rgba(26, 20, 16, 0.95); 
+    border-right: 2px solid #5a443a;   
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    z-index: 1000;
+}
+
+.nav-logo {
+    color: #da9100;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #5a443a;
+}
+
+.nav-item {
+    color: #ccc;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(90, 68, 58, 0.3);
+}
+
+.nav-item:hover {
+    background-color: #3b2d26;
+    color: #fff;
+    padding-left: 35px;
+}
+
+.wof-decoration {
+    position: fixed;
+    right: calc((100vw - 900px - 240px) / 4 - 100px); 
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.8; 
+    display: flex;
+    align-items: center;
+}
+
+.wof-decoration img {
+    height: 100%;
+    width: auto;
+    object-position: left; 
+    object-fit: cover;
+    filter: drop-shadow(-10px 0 20px rgba(0,0,0,0.8));
+}
+
+.wiki-container {
+    max-width: 900px;
+    margin: 40px auto 40px 240px; 
+}
+
+.wiki-section {
+    margin-top: 50px;
+    padding-top: 20px;
+}
+
+.section-title {
+    color: #da9100;
+    font-size: 28px;
+    border-bottom: 2px solid #5a443a;
+    margin-bottom: 20px;
+}
+
+.boss-category h3 {
+    background-color: #3b2d26;
+    padding: 10px;
+    color: #fff;
+    border-left: 5px solid #da9100;
+    margin-bottom: 15px;
+}
+
+.boss-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.boss-card {
+    background-color: #1a1a1a;
+    border: 1px solid #5a443a;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.boss-card:hover {
+    background-color: #da9100;
+    color: #000;
+    transform: scale(1.05);
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, #5a443a, transparent);
+    margin: 40px 0;
+}
+
+.mode-section {
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid #333;
+    background: rgba(26, 26, 26, 0.5);
+}
+
+.mode-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: left !important;
+}
+
+.classic-style .mode-title { color: #fff; border-bottom: 2px solid #888; }
+.expert-style { border-color: #e282ff; }
+.expert-style .mode-title { color: #e282ff; border-bottom: 2px solid #e282ff; }
+.master-style { border-color: #ffaa00; }
+.master-style .mode-title { color: #ffaa00; border-bottom: 2px solid #ffaa00; }
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    background: #000;
+    padding: 15px;
+}
+
+.stat-item b { color: #da9100; margin-right: 5px; }
+
+.infobox-img { 
+    text-align: center; 
+    background: #0c0c0c; 
+    padding: 15px; 
+    border: 1px solid #333; 
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.infobox-img img { 
+    max-width: 100%; 
+    height: auto;
+    display: block; 
+    margin: 0 auto;
+}

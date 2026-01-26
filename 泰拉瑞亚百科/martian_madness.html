@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>火星暴乱 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .drop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .drop-table th, .drop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .drop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="events.html" class="nav-item active">事件</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>火星暴乱 (Martian Madness)</h1>
+            </header>
+            <p class="quote">“火星人正在入侵！”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">触发条件</h2>
+                <p>火星暴乱是一个高科技主题的入侵事件，必须通过特定的交互才能启动。</p>
+                <ul>
+                    <li><b>前提：</b>必须已击败 <span class="highlight">石巨人 (Golem)</span>。</li>
+                    <li><b>启动方式：</b>前往世界两侧的 <b>太空层 (Space)</b> 寻找随机生成的<b>火星探测器</b>。</li>
+                    <li><b>关键步骤：</b>当探测器发现玩家（发光变为红色）并成功飞出屏幕边缘逃脱后，入侵即会触发。如果探测器被击毁，则不会发生入侵。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">事件机制</h2>
+                <ul>
+                    <li><b>进度：</b>击败火星敌怪会增加进度百分比。</li>
+                    <li><b>环境：</b>天空中会出现飞行的飞碟，背景会有外星主题的视觉特效。</li>
+                    <li><b>Boss：</b><span class="highlight">火星飞碟 (Martian Saucer)</span> 是该事件的核心 Boss，它拥有多个阶段且伤害极高。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">重要掉落物</h2>
+                <p>火星飞碟会掉落多款极其强大的后期装备：</p>
+                <table class="drop-table">
+                    <thead>
+                        <tr>
+                            <th>物品</th>
+                            <th>类型</th>
+                            <th>描述</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>宇宙车钥匙</b></td><td>坐骑</td><td>召唤无限飞行的 UFO 坐骑。</td></tr>
+                        <tr><td><b>充能发射器</b></td><td>远程</td><td>发射可蓄力的强力激光。</td></tr>
+                        <tr><td><b>波涌之刃</b></td><td>近战</td><td>发射能够多次追踪弹射的剑气。</td></tr>
+                        <tr><td><b>激光机枪</b></td><td>魔法</td><td>射速极快的魔法加特林。</td></tr>
+                        <tr><td><b>外星法杖</b></td><td>召唤</td><td>召唤能够瞬间移动攻击的小飞碟。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">生存策略</h2>
+                <p>火星飞碟的死光照射可以轻易击杀毫无防备的玩家。建议利用掩体和穿墙武器，或者在开阔地带使用高速移动手段来躲避致命的激光射线。</p>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">火星暴乱</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerMartianMadness.png?ece46f" alt="Martian Madness">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>后期入侵事件</span></div>
+            <div class="infobox-row"><span class="infobox-label">解锁条件</span><span>击败石巨人</span></div>
+            <div class="infobox-row"><span class="infobox-label">触发源</span><span>火星探测器</span></div>
+            <div class="infobox-row"><span class="infobox-label">背景音乐</span><span>Martian Madness</span></div>
+        </aside>
+    </div>
+</body>
+</html>
