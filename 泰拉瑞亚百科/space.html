@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>太空 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #1a1e3d; color: #8da9ff; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .feature-item { background: #111; border: 1px solid #333; padding: 10px; border-radius: 4px; }
+        
+        .gravity-note { color: #00e5ff; font-weight: bold; border: 1px dashed #00e5ff; padding: 10px; display: inline-block; margin-top: 10px; }
+        .highlight { color: #da9100; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>太空 (Space)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                <p>太空位于世界地图的最顶端。在这里，天空背景会从蓝色（白天）转变为带有星空的漆黑背景。由于空气稀薄，这里的<b>重力会显著降低</b>，使得玩家可以跳得更高、下落得更慢。</p>
+                <div class="gravity-note">
+                    低重力效果：跳跃高度约为地表的 2.5 倍，且坠落伤害的积累速度变慢。
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">主要结构</h2>
+                <div class="feature-grid">
+                    <div class="feature-item"><b style="color: #ffd700;">空岛 (Floating Islands)：</b>漂浮在空中的陆地，包含装有星怒或幸运马掌的天空箱。</div>
+                    <div class="feature-item"><b style="color: #00e5ff;">空湖 (Floating Lakes)：</b>用于钓取天空限定鱼类（如天蓝鱼）。</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <ul>
+                    <li><b>哈比 (Harpy)：</b>射出羽毛攻击玩家，是太空最常见的威胁。</li>
+                    <li><b>飞龙 (Wyvern)：</b><span class="highlight">困难模式</span>。巨大的蠕虫类敌怪，掉落<b>飞翔之魂</b>（制作翅膀的核心材料）。</li>
+                    <li><b>火星探测器：</b><span class="highlight">击败石巨人后</span>。若探测到玩家并成功逃脱，将触发火星暴乱。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">生存建议</h2>
+                <p>虽然太空没有坠落伤害陷阱，但战斗环境特殊：</p>
+                <ul>
+                    <li><b>机动性：</b>由于重力低，在空中很难快速躲避。使用<b>抓钩</b>或<b>马掌</b>可以有效控制位移。</li>
+                    <li><b>屏住呼吸：</b>在极高海拔（旧版本或特定Mod）可能存在呼吸限制，但在原版主要影响背景和重力。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">太空</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerSpace.png?2c093d" alt="Space">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">高度</span><span>世界顶端约 1000ft+</span></div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>云、太阳板块、雨云</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>低 (肉前) / 高 (肉后)</span></div>
+        </aside>
+    </div>
+</body>
+</html>

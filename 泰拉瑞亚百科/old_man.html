@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>老人 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .curse-warning { background: rgba(255, 68, 68, 0.1); border: 1px solid #ff4444; padding: 15px; margin-top: 15px; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>老人 (Old Man)</h1>
+            </header>
+            <p class="quote">“快走吧，陌生人。像你这样的人，在地牢里只有死路一条。”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">角色属性</h2>
+                <p>老人是唯一一个默认出现在地牢入口处的 NPC。他被强大的诅咒束缚，无法离开地牢的阴影。</p>
+                <div class="curse-warning">
+                    <b>地牢禁令：</b>如果玩家在没有击败骷髅王的情况下试图进入地牢深处（低于 0 深度），会立即遭到<b>地牢守卫</b>的秒杀攻击。
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">Boss 召唤</h2>
+                <p>在<b>夜晚</b>（7:30 PM 后），与老人对话会出现“诅咒”选项：</p>
+                <ul>
+                    <li>点击“诅咒”后，老人会变身为 Boss <span class="highlight">骷髅王 (Skeletron)</span>。</li>
+                    <li>如果在白天对话，他会提示玩家他的主人只有在夜晚才会显现。</li>
+                    <li>一旦骷髅王被击败，老人身上的诅咒就会解除。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">后续命运</h2>
+                <p>击败骷髅王后：</p>
+                <ul>
+                    <li>老人会消失并获得自由。</li>
+                    <li>不久后，他会作为 <span class="highlight">服饰商</span> 重新入住城镇。</li>
+                    <li>此时玩家可以安全地探索地牢。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">交互细节</h2>
+                <ul>
+                    <li><b>无法互动：</b>老人不进行交易，也不受常规城镇房屋系统的影响。</li>
+                    <li><b>重生机制：</b>如果玩家在与骷髅王的战斗中失败，老人会在下一个黎明重新出现在地牢门口。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">老人</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/1/19/Old_Man.png" alt="Old Man">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>不可玩 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">防御力</span><span>15</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>37</span></div>
+        </aside>
+    </div>
+</body>
+</html>

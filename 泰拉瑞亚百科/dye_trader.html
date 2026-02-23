@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>染料商 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .shop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .shop-table th, .shop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .shop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+        .strange-plant { color: #32ff82; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>染料商 (Dye Trader)</h1>
+            </header>
+            <p class="quote">“亲爱的，你在那种极其平庸的颜色里呆得太久了！”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">入住条件</h2>
+                <p>染料商会在满足以下条件时搬入：</p>
+                <ul>
+                    <li>有一间合适的<b>空房</b>。</li>
+                    <li>玩家的物品栏中拥有任何<span class="highlight">染料原料</span>（如蓝浆果、万寿菊等）或<span class="strange-plant">奇异植物</span>。</li>
+                    <li>击败至少一个<b>主要 Boss</b>（如眼球、蠕虫或大脑）。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心功能</h2>
+                <ul>
+                    <li><b>出售物品：</b>他出售染料缸（用于合成基础染料）和两种特殊的银/金染料。</li>
+                    <li><b>奇异植物交换：</b>这是其最重要的功能。玩家可以在世界各地寻找稀有的<span class="strange-plant">奇异植物</span>，与其对话并选择“奇异植物”选项，他会随机赠送一套华丽的<b>特殊动态染料</b>作为交换。</li>
+                </ul>
+                <table class="shop-table">
+                    <thead>
+                        <tr>
+                            <th>物品</th>
+                            <th>价格</th>
+                            <th>用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>染料缸</b></td><td>5 金币</td><td>基础染料制作站。</td></tr>
+                        <tr><td><b>银染料</b></td><td>1 金币</td><td>给装备镀上银色。</td></tr>
+                        <tr><td><b>染料商袍</b></td><td>3 金币</td><td>时装。在万圣节期间出售。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">防御手段</h2>
+                <p>当受到敌怪攻击时，染料商会使用<b>异域弯刀</b>进行自卫。这把武器在困难模式下他被杀时有概率掉落，是一把非常强力且具有异域风格的近战武器。</p>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">染料商</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/a/a7/Dye_Trader.png" alt="Dye Trader">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>城镇 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">攻击</span><span>异域弯刀</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>207</span></div>
+        </aside>
+    </div>
+</body>
+</html>

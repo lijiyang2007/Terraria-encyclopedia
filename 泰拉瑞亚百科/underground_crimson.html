@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>地下猩红之地 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3d1a1a; color: #ff4d4d; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .soul-box { border: 1px solid #ff4d4d; padding: 15px; background: rgba(255, 77, 77, 0.1); margin-top: 15px; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .resource-item { background: #111; border: 1px solid #333; padding: 12px; border-radius: 4px; border-top: 2px solid #ff4d4d; }
+        
+        .highlight { color: #da9100; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>地下猩红之地 (Underground Crimson)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                <p>地下猩红之地主要占据了洞穴层。它的背景通常表现为跳动的肉质纤维。在进入<b>困难模式</b>后，该区域会迅速通过石块蔓延，并将周围的环境转化为充斥着血红光芒的危险地带。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心产物：暗影之魂</h2>
+                <div class="soul-box">
+                    在地下猩红之地击杀任何敌怪，都有 20% 的几率掉落 <span class="highlight">暗影之魂 (Soul of Night)</span>。它是制作机械 Boss 召唤物和困难模式核心装备的基础材料。
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">战略资源：灵液</h2>
+                <div class="resource-grid">
+                    <div class="resource-item"><b>灵液 (Ichor)：</b>由灵液黏虫掉落。能够制作灵液箭、弹丸或药水，减少敌怪 15 点防御。</div>
+                    <div class="resource-item"><b>猩红钥匙：</b>极稀有掉落，用于在地牢中开启猩红箱以获得<b>吸血鬼刀</b>。</div>
+                    <div class="resource-item"><b>组织样本：</b>肉前通过击败克苏鲁之脑的小弟获得，用于制作早期装备。</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <ul>
+                    <li><b>灵液黏虫：</b>最危险的普通敌怪之一，远程喷射灵液，大幅降低玩家防御。</li>
+                    <li><b>猩红斧：</b>具有穿墙能力的飞行敌怪，会造成“被诅咒”减益。</li>
+                    <li><b>跳跳兽：</b>巨大的肉块生物，拥有极高的生命值和恐怖的碰撞伤害。</li>
+                    <li><b>浮游：</b>巨大的单眼怪物，具有高额的击退抗性。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">地下猩红</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerUndergroundCrimson.png?4ac16d" alt="Underground Crimson">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>猩红石、红冰雪</span></div>
+            <div class="infobox-row"><span class="infobox-label">关键掉落</span><span>暗影之魂、灵液</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>高</span></div>
+        </aside>
+    </div>
+</body>
+</html>

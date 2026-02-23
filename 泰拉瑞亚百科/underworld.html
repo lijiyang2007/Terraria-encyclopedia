@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>地狱 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #5a1a1a; color: #ff4444; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .resource-item { background: #111; border: 1px solid #333; padding: 10px; border-radius: 4px; }
+        
+        .boss-box { border: 2px solid #ff4444; padding: 15px; background: rgba(255, 68, 68, 0.1); margin-top: 15px; }
+        .highlight { color: #ffaa00; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>地狱 (The Underworld)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                <p>地狱是位于世界最底部的生物群系。它的背景是流动的岩浆河，地形由灰烬块组成。这里分布着废弃的<b>地狱堡垒</b>，内部藏有珍贵的暗影箱。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">关键资源</h2>
+                <div class="resource-grid">
+                    <div class="resource-item"><b style="color: #ffaa00;">狱石：</b>与黑曜石合成狱石锭，是肉前最强的装备材料。</div>
+                    <div class="resource-item"><b style="color: #ff4444;">地狱炉：</b>唯一能熔炼狱石的特殊熔炉。</div>
+                    <div class="resource-item"><b style="color: #8da9ff;">暗影箱：</b>需要暗影钥匙开启，包含烈焰火鞭等强力武器。</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <ul>
+                    <li><b>巫毒恶魔：</b>掉落向导巫毒娃娃，是开启 Boss 战的关键。</li>
+                    <li><b>烈焰火球：</b>在地狱堡垒中发射穿墙火球的恼人敌怪。</li>
+                    <li><b>岩浆史莱姆：</b>死亡后会流出熔岩（仅限专家/大师模式）。</li>
+                    <li><b>痛苦亡魂：</b>肉后出现，使用净化粉可将其变为 <span class="highlight">税收官</span>。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">Boss 战：肉山</h2>
+                <div class="boss-box">
+                    将 <b>向导巫毒娃娃</b> 投入地狱的熔岩中会立即杀死向导并召唤 <span class="highlight">肉山 (Wall of Flesh)</span>。击败它后，世界将永久进入“困难模式”。
+                </div>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">地狱</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerUnderworld.png?9794a6" alt="Underworld">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>灰烬块、狱石、黑曜石砖</span></div>
+            <div class="infobox-row"><span class="infobox-label">危险元素</span><span>熔岩、地狱陷阱</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>极高 (肉前终点)</span></div>
+        </aside>
+    </div>
+</body>
+</html>

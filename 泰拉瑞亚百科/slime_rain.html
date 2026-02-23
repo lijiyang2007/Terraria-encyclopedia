@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>史莱姆雨 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .stat-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .stat-table th, .stat-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .stat-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="events.html" class="nav-item active">事件</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>史莱姆雨 (Slime Rain)</h1>
+            </header>
+            <p class="quote">“史莱姆从天而降！”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">发生条件</h2>
+                <p>史莱姆雨是一个随机发生的迷你事件，通常在玩家探索初期出现。</p>
+                <ul>
+                    <li><b>触发概率：</b>每天早晨有 <span class="highlight">4.9%</span> 的几率发生（如果尚未击败史莱姆王，概率提升为 <span class="highlight">14.7%</span>）。</li>
+                    <li><b>限制：</b>世界中至少有一名玩家拥有超过 <span class="highlight">140</span> 生命值和 <span class="highlight">8</span> 防御力。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">事件机制</h2>
+                <ul>
+                    <li><b>背景变化：</b>背景中可以看到不断掉落的各种颜色的小史莱姆。</li>
+                    <li><b>敌怪生成：</b>大量蓝色、绿色和紫色史莱姆会不断生成。</li>
+                    <li><b>结束条件：</b>事件持续 9 到 15 个游戏小时，或者玩家击败了足够数量的史莱姆。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">召唤史莱姆王</h2>
+                <p>如果在史莱姆雨期间击败了足够数量的史莱姆，Boss 将会降临：</p>
+                <table class="stat-table">
+                    <thead>
+                        <tr>
+                            <th>情况</th>
+                            <th>击杀需求</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>尚未击败史莱姆王</b></td><td>150 只史莱姆</td></tr>
+                        <tr><td><b>已经击败史莱姆王</b></td><td>75 只史莱姆</td></tr>
+                    </tbody>
+                </table>
+                <p>当满足击杀数量后，<span class="highlight">史莱姆王</span> 将会立即生成。击败 Boss 后事件自动结束。</p>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">史莱姆雨</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/BiomeBannerSlimeRain.png?beb390" alt="Slime Rain">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>自然事件</span></div>
+            <div class="infobox-row"><span class="infobox-label">特殊奖励</span><span>史莱姆王掉落物</span></div>
+            <div class="infobox-row"><span class="infobox-label">背景音乐</span><span>Slime Rain</span></div>
+        </aside>
+    </div>
+</body>
+</html>

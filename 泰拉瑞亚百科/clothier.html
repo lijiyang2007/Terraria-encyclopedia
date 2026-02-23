@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>服饰商 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        
+        .infobox { 
+            flex: 1; min-width: 300px; background: #1a1a1a; border: 1px solid #5a443a; 
+            padding: 15px; align-self: flex-start; position: sticky; top: 20px;
+        }
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .shop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .shop-table th, .shop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .shop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+        .curse-note { border: 1px solid #ff4444; padding: 10px; background: rgba(255, 0, 0, 0.1); margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>服饰商 (Clothier)</h1>
+            </header>
+            <p class="quote">“在那地牢里度过了几十年之后，一件漂亮的真丝长袍简直是天堂。”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">入住条件</h2>
+                <p>服饰商会在满足以下条件时搬入：</p>
+                <ul>
+                    <li>有一间合适的<b>空房</b>。</li>
+                    <li>玩家已击败 <span class="highlight">骷髅王 (Skeletron)</span>。在此之前，他以“老人”的身份守在地牢门口。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心功能</h2>
+                <p>他是主要的<b>时装物品</b>来源。他的库存会根据时间（白天/夜晚）、月相、玩家所在的群系以及击败的 Boss 而变化。</p>
+                <table class="shop-table">
+                    <thead>
+                        <tr>
+                            <th>物品</th>
+                            <th>价格</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>丝绸大帽</b></td><td>2 金币</td><td>基础时装。</td></tr>
+                        <tr><td><b>各种套装</b></td><td>按部位</td><td>如燕尾服、各种颜色的长袍等。</td></tr>
+                        <tr><td><b>Boss 面具</b></td><td>不同价格</td><td>击败特定 Boss 后出售对应时装。</td></tr>
+                        <tr><td><b>骷髅王面具</b></td><td>不适用</td><td>他在被杀时有几率掉落。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">诅咒与重生</h2>
+                <div class="curse-note">
+                    玩家可以通过装备<b>服饰商巫毒娃娃</b>并杀死服饰商，来再次召唤 Boss <b>骷髅王</b>（仅限夜晚）。
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">交互细节</h2>
+                <ul>
+                    <li><b>自卫能力：</b>他会向敌怪投掷<b>书籍</b>进行攻击。</li>
+                    <li><b>过去：</b>他曾是被邪恶诅咒控制的人，这解释了他为何害怕地牢和骷髅。</li>
+                    <li><b>特殊：</b>他非常喜欢居住在地下，且喜欢与<b>税收官</b>住在一起。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">服饰商</div>
+            <div class="infobox-img">
+                <img src="https://terraria.wiki.gg/images/c/c5/Clothier.png" alt="Clothier">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>城镇 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">攻击</span><span>书籍</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>54</span></div>
+        </aside>
+    </div>
+</body>
+</html>
