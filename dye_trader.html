@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>染料商 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .shop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .shop-table th, .shop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .shop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+        .strange-plant { color: #32ff82; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .shop-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>染料商 (Dye Trader)</h1>
+            </header>
+            <p class="quote">“亲爱的，你在那种极其平庸的颜色里呆得太久了！”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">入住条件</h2>
+                <p>染料商会在满足以下条件时搬入：</p>
+                <ul>
+                    <li>有一间合适的<b>空房</b>。</li>
+                    <li>玩家的物品栏中拥有任何<span class="highlight">染料原料</span>或<span class="strange-plant">奇异植物</span>。</li>
+                    <li>击败至少一个<b>主要 Boss</b>（如克苏鲁之眼、世界吞噬怪或克苏鲁之脑）。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心功能</h2>
+                <ul>
+                    <li><b>出售物品：</b>他出售染料缸和银/金染料。</li>
+                    <li><b>奇异植物交换：</b>玩家可以使用<span class="strange-plant">奇异植物</span>换取随机的<b>特殊动态染料</b>。</li>
+                </ul>
+                <table class="shop-table">
+                    <thead>
+                        <tr>
+                            <th>物品</th>
+                            <th>价格</th>
+                            <th>用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>染料缸</b></td><td>5 金币</td><td>基础染料制作站。</td></tr>
+                        <tr><td><b>银染料</b></td><td>1 金币</td><td>给装备镀上银色。</td></tr>
+                        <tr><td><b>染料商袍</b></td><td>3 金币</td><td>时装。在万圣节期间出售。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">防御手段</h2>
+                <p>当受到攻击时，染料商会使用<b>异域弯刀</b>自卫。这把武器在困难模式下他被杀时有几率掉落。</p>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">染料商</div>
+            <div class="infobox-img">
+                <img src="图片/Dye_Trader.webp" alt="Dye Trader">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>城镇 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">攻击</span><span>异域弯刀</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>207</span></div>
+        </aside>
+    </div>
+</body>
+</html>

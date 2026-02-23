@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大风天 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .income-box { background: rgba(218, 145, 0, 0.1); border: 1px solid #da9100; padding: 15px; margin-top: 15px; border-radius: 4px; }
+        .income-box b { color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+
+        .enemy-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .enemy-table th, .enemy-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .enemy-table th { background: #2a231a; color: #ffaa00; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>大风天 (Windy Day)</h1>
+            </header>
+            <p class="quote">“风在怒吼！”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">发生条件</h2>
+                <div class="income-box">
+                    <ul>
+                        <li><b>风速要求：</b>当风速超过 <span class="highlight">20 mph</span> 时自动触发。</li>
+                        <li><b>时间规律：</b>通常在上午 7:30 开始，持续到傍晚或风速回落。</li>
+                        <li><b>天气叠加：</b>大风天可以与雨天同时发生，形成暴风雨。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">环境变化</h2>
+                <ul>
+                    <li><b>环境效果：</b>云朵碎片、树叶和花瓣在空中飞舞，植物摇摆幅度增大。</li>
+                    <li><b>物理影响：</b>玩家顺风移动加速，逆风减速。弹道类武器（如箭矢）受风力轻微偏移。</li>
+                    <li><b>交互项：</b>可以在此时放飞各种风筝，风筝的高度随风力增强而提高。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <table class="enemy-table">
+                    <thead>
+                        <tr>
+                            <th>敌怪</th>
+                            <th>生成位置</th>
+                            <th>核心掉落</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>愤怒蒲公英</b></td><td>森林（地表）</td><td>蒲公英种子（材料）</td></tr>
+                        <tr><td><b>云怪</b></td><td>地表（全群系）</td><td>云风筝</td></tr>
+                        <tr><td><b>风筝敌怪</b></td><td>地表（全群系）</td><td>对应的生物风筝</td></tr>
+                        <tr><td><b>沙尘精</b></td><td>沙漠（困难模式）</td><td>禁戒碎片（关键材料）</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">成就与收集</h2>
+                <p>在此事件期间，派对女孩会出售多种基础风筝。击败特定敌怪（如蛾子、飞龙等）也会掉落对应的稀有风筝。成功放飞风筝可以完成相关成就。</p>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">大风天</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerWindyDay.webp" alt="Windy Day">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>环境事件</span></div>
+            <div class="infobox-row"><span class="infobox-label">触发风速</span><span>> 20 mph</span></div>
+            <div class="infobox-row"><span class="infobox-label">背景音乐</span><span>Windy Day</span></div>
+        </aside>
+    </div>
+</body>
+</html>

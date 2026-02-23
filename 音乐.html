@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        /* PC 端原有样式保持不动 */
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .music-table { width: 100%; border-collapse: collapse; background: #111; font-size: 13px; }
+        .music-table th, .music-table td { border: 1px solid #333; padding: 10px; text-align: left; vertical-align: top; }
+        .music-table th { background: #2a231a; color: #ffaa00; position: sticky; top: 0; z-index: 10; }
+        .music-table tr:hover { background: rgba(218, 145, 0, 0.1); cursor: pointer; }
+        .music-table tr.active { background: rgba(218, 145, 0, 0.2); border-left: 3px solid #da9100; }
+        .music-id { width: 30px; color: #888; text-align: center; }
+        .music-name { width: 180px; font-weight: bold; color: #8da9ff; }
+        .music-cond { width: 200px; }
+        .music-ver { width: 80px; font-size: 12px; }
+        .music-desc { color: #bbb; line-height: 1.5; }
+        .player-footer {
+            position: fixed;
+            bottom: 0;
+            left: 250px;
+            right: 0;
+            background: #1a1a1a;
+            border-top: 2px solid #da9100;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 2000;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+        }
+
+        .now-playing { min-width: 200px; }
+        .now-playing .track-title { color: #da9100; font-weight: bold; font-size: 14px; display: block; }
+        .now-playing .track-sub { color: #888; font-size: 12px; }
+
+        .controls { display: flex; align-items: center; gap: 15px; flex: 1; }
+        .play-btn { 
+            background: #da9100; border: none; color: #000; 
+            width: 40px; height: 40px; border-radius: 50%; 
+            cursor: pointer; font-weight: bold; font-size: 12px;
+        }
+        
+        .progress-container { flex: 1; display: flex; align-items: center; gap: 10px; }
+        #seek-bar { flex: 1; accent-color: #da9100; cursor: pointer; }
+        .time { font-family: monospace; font-size: 12px; color: #888; width: 45px; }
+
+        /* 新增：平板端适配 (769px - 1200px) */
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .sidebar { width: 200px; } /* 稍微收窄侧边栏 */
+            .nav-item { white-space: nowrap !important; overflow: hidden; text-overflow: ellipsis; } /* 强制不换行 */
+            .player-footer { left: 200px; padding: 15px 20px; }
+            .wiki-container { padding: 0 20px; }
+            .music-table { display: block; overflow-x: auto; }
+        }
+
+        /* 优化：手机端适配 (768px 以下) */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { 
+                width: 100%; height: auto; position: static; 
+                display: flex; flex-direction: row; flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; text-align: center; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; border-bottom: 1px solid #333; }
+
+            .wiki-container { padding: 0 15px; margin: 20px 0 120px 0; width: 100%; box-sizing: border-box; }
+            
+            /* 表格溢出处理：允许横向滚动 */
+            .music-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            
+            .player-footer { 
+                left: 0; padding: 10px 15px; 
+                flex-direction: column; height: auto; 
+                gap: 10px;
+            }
+            .now-playing { min-width: 100%; text-align: center; }
+            .controls { width: 100%; gap: 10px; }
+            .progress-container { gap: 5px; }
+            #seek-bar { height: 20px; } /* 增加点击区域 */
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+    </nav>
+
+    <div class="wiki-container">
+        <header class="wiki-header">
+            <h1>音乐 (Music)</h1>
+        </header>
+
+        <section class="content-section">
+            <h2 class="section-h2">曲目列表</h2>
+            <table class="music-table">
+                <thead>
+                    <tr>
+                        <th class="music-id">#</th>
+                        <th>曲名</th>
+                        <th>播放条件</th>
+                        <th>专辑/版本</th>
+                        <th>描述</th>
+                    </tr>
+                </thead>
+                <tbody id="track-list">
+                    <tr data-src="音乐\Music-Overworld_Day.mp3"><td>1</td><td class="music-name">Overworld Day</td><td>森林，白天</td><td>第 1 辑 / 1.0</td><td class="music-desc">快活、乐观、简单的曲调。</td></tr>
+                    <tr data-src="音乐\Music-Eerie.mp3"><td>2</td><td class="music-name">Eerie</td><td>血月、陨石</td><td>第 1 辑 / 1.0</td><td class="music-desc">比大多数曲目更慢更不详。在任天堂版上被 Underworld 取代。</td></tr>
+                    <tr data-src="音乐\Music-Overworld_Night.mp3"><td>3</td><td class="music-name">Overworld Night</td><td>森林、神圣（地表）夜晚</td><td>第 1 辑 / 1.0</td><td class="music-desc">相对平静和舒缓，但它是小调曲调。</td></tr>
+                    <tr data-src="音乐\Music-Underground.mp3"><td>4</td><td class="music-name">Underground</td><td>洞穴、地下</td><td>第 1 辑 / 1.0</td><td class="music-desc">快速且古怪的曲子，有着机器人般的音色。</td></tr>
+                    <tr data-src="音乐\Music-Boss_1.mp3"><td>5</td><td class="music-name">Boss 1</td><td>克苏鲁之眼、骷髅王、史莱姆王等</td><td>第 1 辑 / 1.0</td><td class="music-desc">响亮而狂热的战斗音乐。曾用于猪龙鱼公爵战。</td></tr>
+                    <tr data-src="音乐\Music-Title_Screen.mp3"><td>6</td><td class="music-name">Title Screen</td><td>标题界面</td><td>第 1 辑 / 1.0</td><td class="music-desc">安详庄重。拖动标题界面的日月依然会播放。</td></tr>
+                    <tr data-src="音乐\Music-Jungle.mp3"><td>7</td><td class="music-name">Jungle</td><td>丛林、地表、白天</td><td>第 1 辑 / 1.0.5</td><td class="music-desc">充满异国情调，强调打击乐。</td></tr>
+                    <tr data-src="音乐\Music-Corruption.mp3"><td>8</td><td class="music-name">Corruption</td><td>腐化之地（地表）</td><td>第 1 辑 / 1.0.6</td><td class="music-desc">旋律类似 Overworld Day，但更放慢且险恶。</td></tr>
+                    <tr data-src="音乐\Music-The_Hallow.mp3"><td>9</td><td class="music-name">The Hallow</td><td>神圣之地（地表）、白天</td><td>第 1 辑 / 1.1</td><td class="music-desc">欢快天堂般，大量使用竖琴，与 Overworld Day 共用旋律。</td></tr>
+                    <tr data-src="音乐\Music-Underground_Corruption.mp3"><td>10</td><td class="music-name">Underground Corruption</td><td>地下腐化之地</td><td>第 1 辑 / 1.1</td><td class="music-desc">Corruption 和 Underground 的结合体，色调灰暗。</td></tr>
+                    <tr data-src="音乐\Music-Underground_Hallow.mp3"><td>11</td><td class="music-name">Underground Hallow</td><td>地下神圣之地</td><td>第 1 辑 / 1.1</td><td class="music-desc">Hallow 和 Underground 的结合，天堂调带有快节奏电子乐。</td></tr>
+                    <tr data-src="音乐\Music-Boss_2.mp3"><td>12</td><td class="music-name">Boss 2</td><td>双子魔眼、血肉墙</td><td>第 1 辑 / 1.1</td><td class="music-desc">兴奋狂乱，给人以追逐、恐惧和恐怖感。</td></tr>
+                    <tr data-src="音乐\Music-Boss_3.mp3"><td>13</td><td class="music-name">Boss 3</td><td>克苏鲁之脑、毁灭者、火把神</td><td>第 1 辑 / 1.1</td><td class="music-desc">曲目中最缓慢的一首，险恶且具机械感。</td></tr>
+                    <tr data-src="音乐\Music-Snow.mp3"><td>14</td><td class="music-name">Snow</td><td>雪原生物群系</td><td>第 2 辑 / 1.2</td><td class="music-desc">清晰、冰冷、剔透的感觉。</td></tr>
+                    <tr data-src="音乐\Music-Space_Night.mp3"><td>15</td><td class="music-name">Space Night</td><td>太空、夜晚</td><td>第 2 辑 / 1.2</td><td class="music-desc">空灵合成器，无忧无虑。</td></tr>
+                    <tr data-src="音乐\Music-Crimson.mp3"><td>16</td><td class="music-name">Crimson</td><td>猩红之地（地表）</td><td>第 2 辑 / 1.2</td><td class="music-desc">比 Corruption 更快且令人生畏、不安。</td></tr>
+                    <tr data-src="音乐\Music-Golem.mp3"><td>17</td><td class="music-name">Golem / Boss 4</td><td>石巨人、邪教徒、海盗入侵</td><td>第 2 辑 / 1.2</td><td class="music-desc">快节奏，不显黑暗或威胁。</td></tr>
+                    <tr data-src="音乐\Music-Alternate_Day.mp3"><td>18</td><td class="music-name">Alternate Day</td><td>森林，白天（备选）</td><td>第 2 辑 / 1.2</td><td class="music-desc">类似 Overworld Day，但编曲更复杂。</td></tr>
+                    <tr data-src="音乐\Music-Rain.mp3"><td>19</td><td class="music-name">Rain</td><td>雨</td><td>第 2 辑 / 1.2</td><td class="music-desc">平和宁静，慢且不积极。</td></tr>
+                    <tr data-src="音乐\Music-Ice_biome.mp3"><td>20</td><td class="music-name">Ice</td><td>冰雪生物群系</td><td>第 4 辑 / 1.2</td><td class="music-desc">静谧、神秘、有冬天感。</td></tr>
+                    <tr data-src="音乐\Music-Desert.mp3"><td>21</td><td class="music-name">Desert</td><td>沙漠</td><td>第 4 辑 / 1.2</td><td class="music-desc">受古埃及音乐启发，简单安静。</td></tr>
+                    <tr data-src="音乐\Music-Ocean_Day.mp3"><td>22</td><td class="music-name">Ocean</td><td>海洋、白天</td><td>第 2 辑 / 1.2</td><td class="music-desc">宁静，比其他白天曲目稍慢。</td></tr>
+                    <tr data-src="音乐\Music-Dungeon.mp3"><td>23</td><td class="music-name">Dungeon</td><td>地牢</td><td>第 2 辑 / 1.2</td><td class="music-desc">不祥黑暗，制造出类似于地牢深处回音。</td></tr>
+                    <tr data-src="音乐\Music-Plantera.mp3"><td>24</td><td class="music-name">Plantera</td><td>世纪之花</td><td>第 2 辑 / 1.2</td><td class="music-desc">独特快速摇滚，致敬 Pantera 乐队。</td></tr>
+                    <tr data-src="音乐\Music-Boss_5.mp3"><td>25</td><td class="music-name">Boss 5</td><td>蜂王、奥库瑞姆</td><td>第 4 辑 / 1.2</td><td class="music-desc">模拟蜜蜂嗡嗡声。前代主机版名为 Boss 4。</td></tr>
+                    <tr data-src="音乐\Music-Lihzahrd.mp3"><td>26</td><td class="music-name">Temple</td><td>丛林神庙</td><td>第 2 辑 / 1.2</td><td class="music-desc">神秘异域风情，身处远古世界。</td></tr>
+                    <tr data-src="音乐\Music-Eclipse.mp3"><td>27</td><td class="music-name">Eclipse</td><td>日食</td><td>第 2 辑 / 1.2</td><td class="music-desc">风琴特色，经典恐怖感。</td></tr>
+                    <tr data-src="音乐\28_RainAmbience.wav"><td>28</td><td class="music-name">Rain (SFX)</td><td>雨、雷雨 环境音</td><td>无 / 1.2</td><td class="music-desc">雨水拍打地面及微弱雷声。</td></tr>
+                    <tr data-src="音乐\Music-Mushrooms.mp3"><td>29</td><td class="music-name">Mushrooms</td><td>发光蘑菇生物群系</td><td>第 2 辑 / 1.2</td><td class="music-desc">另类、异国情调、迷幻。</td></tr>
+                    <tr data-src="音乐\Music-Pumpkin_Moon.mp3"><td>30</td><td class="music-name">Pumpkin Moon</td><td>南瓜月</td><td>第 3 辑 / 1.2.1.2</td><td class="music-desc">阴森的万圣节主题。</td></tr>
+                    <tr data-src="音乐\Music-Alternate_Underground.mp3"><td>31</td><td class="music-name">Alt Underground</td><td>洞穴、地下（备选）</td><td>第 3 辑 / 1.2.2</td><td class="music-desc">不那么怪诞，包含 Boss 2 动机。</td></tr>
+                    <tr data-src="音乐\Music-Frost_Moon.mp3"><td>32</td><td class="music-name">Frost Moon</td><td>霜月</td><td>第 3 辑 / 1.2.2</td><td class="music-desc">乐观的圣诞风格金属乐。</td></tr>
+                    <tr data-src="音乐\Music-Underground_Crimson.mp3"><td>33</td><td class="music-name">Underground Crimson</td><td>地下猩红之地</td><td>第 3 辑 / 1.2.4</td><td class="music-desc">Underground 和 Crimson 混音。</td></tr>
+                    <tr data-src="音乐\Music-Lunar_Boss.mp3"><td>34</td><td class="music-name">Lunar</td><td>月亮事件</td><td>第 3 辑 / 1.3.0.1</td><td class="music-desc">快速、抽象且紧张。原本为最终 Boss 准备。</td></tr>
+                    <tr data-src="音乐\Music-Pirate_Invasion.mp3"><td>35</td><td class="music-name">Pirate Invasion</td><td>海盗入侵</td><td>第 3 辑 / 1.3.0.1</td><td class="music-desc">想起《加勒比海盗》配乐。</td></tr>
+                    <tr data-src="音乐\Music-Underworld.mp3"><td>36</td><td class="music-name">Underworld</td><td>地狱</td><td>第 3 辑 / 1.3.0.1</td><td class="music-desc">深沉险恶，强调打击乐。</td></tr>
+                    <tr data-src="音乐\Music-Martian_Madness.mp3"><td>37</td><td class="music-name">Martian Madness</td><td>火星暴乱</td><td>第 3 辑 / 1.3.0.1</td><td class="music-desc">喧闹且令人畏惧。</td></tr>
+                    <tr data-src="音乐\Music-Moon_Lord.mp3"><td>38</td><td class="music-name">Moon Lord</td><td>月亮领主</td><td>第 3 辑 / 1.3.0.1</td><td class="music-desc">独特紧张快速，重用 Towers 和 Space 动机。</td></tr>
+                    <tr data-src="音乐\Music-Goblin_Army.mp3"><td>39</td><td class="music-name">Goblin Army</td><td>哥布林军队</td><td>第 3 辑 / 1.3.0.1</td><td class="music-desc">有点像 Pumpkin Moon。</td></tr>
+                    <tr data-src="音乐\Music-Sandstorm.mp3"><td>40</td><td class="music-name">Sandstorm</td><td>沙尘暴</td><td>第 4 辑 / 1.3.3</td><td class="music-desc">合成器模拟风声，西塔琴赋予沙漠感。</td></tr>
+                    <tr data-src="音乐\Music-Old_One's_Army.mp3"><td>41</td><td class="music-name">Old One's Army</td><td>撒旦军队</td><td>第 4 辑 / 1.3.4</td><td class="music-desc">更具管弦乐风格，融合地牢守护者动机。</td></tr>
+                    <tr data-src="音乐\Music-Space_Day.mp3"><td>42</td><td class="music-name">Space Day</td><td>太空、白天</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">较缓慢和平静。</td></tr>
+                    <tr data-src="音乐\Music-Ocean_Night.mp3"><td>43</td><td class="music-name">Ocean Night</td><td>海洋、夜晚</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">比白天版更活跃响亮，音色快乐。</td></tr>
+                    <tr data-src="音乐\Music-Windy_Day.mp3"><td>44</td><td class="music-name">Windy Day</td><td>大风天</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">受《小熊维尼》启发，异想天开的 3/4 拍。</td></tr>
+                    <tr data-src="音乐\45_-_Wind_Ambiance.mp3"><td>45</td><td class="music-name">Wind (SFX)</td><td>大风天、雷雨 环境音</td><td>无 / 1.4.0.1</td><td class="music-desc">风吹过的声音。</td></tr>
+                    <tr data-src="音乐\Music-Town_Day.mp3"><td>46</td><td class="music-name">Town Day</td><td>城镇、白天</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">舒缓，类似 Overworld Day。</td></tr>
+                    <tr data-src="音乐\Music-Town_Night.mp3"><td>47</td><td class="music-name">Town Night</td><td>城镇、夜晚</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">先快后慢，平静愉悦旋律。</td></tr>
+                    <tr data-src="音乐\Music-Slime_Rain.mp3"><td>48</td><td class="music-name">Slime Rain</td><td>史莱姆雨</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">跳跃且听起来略傻。</td></tr>
+                    <tr data-src="音乐\Music-Contest_Winner.mp3"><td>49</td><td class="music-name">Day Remix</td><td>仅限八音盒</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">现代电子混音，音乐比赛获奖作品。</td></tr>
+                    <tr data-src="音乐\Music-Journey's_Beginning_(intro).mp3"><td>50</td><td class="music-name">Journey's Beginning (Intro)</td><td>标题界面</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">辉煌强大，带有“呜呜呜”前奏。</td></tr>
+                    <tr data-src="音乐\Music-Journey's_Beginning.mp3"><td>51</td><td class="music-name">Journey's Beginning</td><td>标题界面（备选）</td><td>无 / 1.4.0.1</td><td class="music-desc">辉煌强大，内部名为 Title Alt。</td></tr>
+                    <tr data-src="音乐\Music-Storm.mp3"><td>52</td><td class="music-name">Storm</td><td>雷雨</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">刺耳具威胁。</td></tr>
+                    <tr data-src="音乐\Music-Graveyard.mp3"><td>53</td><td class="music-name">Graveyard</td><td>墓地</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">加工后的 Town 动机，黑暗沮丧。</td></tr>
+                    <tr data-src="音乐\Music-Underground_Jungle.mp3"><td>54</td><td class="music-name">Underground Jungle</td><td>地下丛林</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">古怪感少，更具威胁和忧郁。</td></tr>
+                    <tr data-src="音乐\Music-Surface_Night_Jungle.mp3"><td>55</td><td class="music-name">Jungle Night</td><td>丛林夜晚</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">缓慢不详，强调鼓点。</td></tr>
+                    <tr data-src="音乐\Music-Queen_Slime.mp3"><td>56</td><td class="music-name">Queen Slime</td><td>史莱姆皇后</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">庆祝风格开头演变为不详。</td></tr>
+                    <tr data-src="音乐\Music-Empress_of_Light.mp3"><td>57</td><td class="music-name">Empress of Light</td><td>光之女皇</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">快速极其紧张，具有混乱感。</td></tr>
+                    <tr data-src="音乐\Music-Duke_Fishron.mp3"><td>58</td><td class="music-name">Duke Fishron</td><td>猪龙鱼公爵</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">缓慢海盗感，与混乱战斗形成对比。</td></tr>
+                    <tr data-src="音乐\Music-Morning_Rain.mp3"><td>59</td><td class="music-name">Tutorial / Morning Rain</td><td>清晨雨</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">夸张欢乐，仿佛开始冒险。</td></tr>
+                    <tr data-src="音乐\Music-Title_(Console).mp3"><td>60</td><td class="music-name">Console Title</td><td>醉酒世界生成</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">Title 变奏。最初为前代主机版标题曲。</td></tr>
+                    <tr data-src="音乐\Music-Underground_Desert.mp3"><td>61</td><td class="music-name">Underground Desert</td><td>地下沙漠</td><td>第 4 辑 / 1.4.0.1</td><td class="music-desc">缓慢神秘开头后转为摇滚风格。</td></tr>
+                    <tr data-src="音乐\Music-Rain_(Otherworldly).mp3"><td>62</td><td class="music-name">Rain (OW)</td><td>异界版 - 雨</td><td>异界 / 1.4.0.1</td><td class="music-desc">钢琴声氛围曲。</td></tr>
+                    <tr data-src="音乐\Music-Forest_Day_(Otherworldly).mp3"><td>63</td><td class="music-name">Overworld Day (OW)</td><td>异界版 - 森林白天</td><td>异界 / 1.4.0.1</td><td class="music-desc">庆祝胜利配乐感，爱尔兰长笛特色。</td></tr>
+                    <tr data-src="音乐\Music-Forest_Night_(Otherworldly).mp3"><td>64</td><td class="music-name">Night (OW)</td><td>异界版 - 森林夜晚</td><td>异界 / 1.4.0.1</td><td class="music-desc">不详疯狂，给人迫在眉睫危险感。</td></tr>
+                    <tr data-src="音乐\Music-Main_Theme_(Underground)_(Otherworldly).mp3"><td>65</td><td class="music-name">Underground (OW)</td><td>异界版 - 洞穴</td><td>异界 / 1.4.0.1</td><td class="music-desc">小提琴演奏英雄配乐。</td></tr>
+                    <tr data-src="音乐\Music-Desert_(Otherworldly).mp3"><td>66</td><td class="music-name">Desert (OW)</td><td>异界版 - 沙漠</td><td>异界 / 1.4.0.1</td><td class="music-desc">西部感觉，间或心跳声。</td></tr>
+                    <tr data-src="音乐\Music-Ocean_(Otherworldly).mp3"><td>67</td><td class="music-name">Ocean (OW)</td><td>异界版 - 海洋</td><td>异界 / 1.4.0.1</td><td class="music-desc">环境配乐结合排笛。</td></tr>
+                    <tr data-src="音乐\Music-Crystal_Caves_(Mushrooms)_(Otherworldly).mp3"><td>68</td><td class="music-name">Mushrooms (OW)</td><td>异界版 - 蘑菇</td><td>异界 / 1.4.0.1</td><td class="music-desc">安静版蘑菇生物群系配乐。</td></tr>
+                    <tr data-src="音乐\Music-Dungeon_(Otherworldly).mp3"><td>69</td><td class="music-name">Dungeon (OW)</td><td>异界版 - 地牢</td><td>异界 / 1.4.0.1</td><td class="music-desc">忧郁仪式感，部落鼓声。</td></tr>
+                    <tr data-src="音乐\Music-Space_(Otherworldly).mp3"><td>70</td><td class="music-name">Space (OW)</td><td>异界版 - 太空</td><td>异界 / 1.4.0.1</td><td class="music-desc">环境配乐，科幻感迷幻声。</td></tr>
+                    <tr data-src="音乐\Music-Underworld_(Otherworldly).mp3"><td>71</td><td class="music-name">Underworld (OW)</td><td>异界版 - 地狱</td><td>异界 / 1.4.0.1</td><td class="music-desc">黑暗侵略性，大键琴演奏。</td></tr>
+                    <tr data-src="音乐\Music-Arctic_(Snow)_(Otherworldly).mp3"><td>72</td><td class="music-name">Snow (OW)</td><td>异界版 - 雪原</td><td>异界 / 1.4.0.1</td><td class="music-desc">平静放松。</td></tr>
+                    <tr data-src="音乐\Music-Corruption_(Otherworldly).mp3"><td>73</td><td class="music-name">Corruption (OW)</td><td>异界版 - 腐化地表</td><td>异界 / 1.4.0.1</td><td class="music-desc">黑暗起伏，缓拍摇滚。</td></tr>
+                    <tr data-src="音乐\Music-Underground_Corruption_(Otherworldly).mp3"><td>74</td><td class="music-name">Underground Corrupt (OW)</td><td>异界版 - 地下腐化</td><td>异界 / 1.4.0.1</td><td class="music-desc">更具侵略性。</td></tr>
+                    <tr data-src="音乐\Music-Crimson_(Otherworldly).mp3"><td>75</td><td class="music-name">Crimson (OW)</td><td>异界版 - 猩红地表</td><td>异界 / 1.4.0.1</td><td class="music-desc">阴郁感环境配乐。</td></tr>
+                    <tr data-src="音乐\Music-Underground_Crimson_(Otherworldly).mp3"><td>76</td><td class="music-name">Underground Crimson (OW)</td><td>异界版 - 地下猩红</td><td>异界 / 1.4.0.1</td><td class="music-desc">令人生厌且狂热。</td></tr>
+                    <tr data-src="音乐\Music-Ice_(Otherworldly).mp3"><td>77</td><td class="music-name">Ice (OW)</td><td>异界版 - 冰雪</td><td>异界 / 1.4.0.1</td><td class="music-desc">水晶般声音，不详。</td></tr>
+                    <tr data-src="音乐\Music-Underground_Hallow_(Otherworldly).mp3"><td>78</td><td class="music-name">Underground Hallow (OW)</td><td>异界版 - 地下神圣</td><td>异界 / 1.4.0.1</td><td class="music-desc">邪恶异想天开的感觉。</td></tr>
+                    <tr data-src="音乐\Music-Eerie_(Otherworldly).mp3"><td>79</td><td class="music-name">Eerie (OW)</td><td>异界版 - 血月/墓地</td><td>异界 / 1.4.0.1</td><td class="music-desc">末日版，女声赞美诗。</td></tr>
+                    <tr data-src="音乐\Music-Boss_2_(Otherworldly).mp3"><td>80</td><td class="music-name">Boss 2 (OW)</td><td>异界版 - 机械Boss/光女等</td><td>异界 / 1.4.0.1</td><td class="music-desc">强度递增，男女声吟唱。</td></tr>
+                    <tr data-src="音乐\Music-Boss_1_(Otherworldly).mp3"><td>81</td><td class="music-name">Boss 1 (OW)</td><td>异界版 - 克脑/克眼等</td><td>异界 / 1.4.0.1</td><td class="music-desc">类似撒旦军队，更黑暗。</td></tr>
+                    <tr data-src="音乐\Music-Invasion_(Otherworldly).mp3"><td>82</td><td class="music-name">Invasion (OW)</td><td>异界版 - 入侵事件</td><td>异界 / 1.4.0.1</td><td class="music-desc">威胁性快速，时间耗尽感。</td></tr>
+                    <tr data-src="音乐\Music-The_Towers_(Otherworldly).mp3"><td>83</td><td class="music-name">The Towers (OW)</td><td>异界版 - 月亮事件</td><td>异界 / 1.4.0.1</td><td class="music-desc">英雄感，大量电吉他。</td></tr>
+                    <tr data-src="音乐\Music-Lunar_Boss_(Otherworldly).mp3"><td>84</td><td class="music-name">Lunar Boss (OW)</td><td>异界版 - 月亮领主</td><td>异界 / 1.4.0.1</td><td class="music-desc">戏剧性，更多吟唱。</td></tr>
+                    <tr data-src="音乐\Music-Plantera_(Otherworldly).mp3"><td>85</td><td class="music-name">Plantera (OW)</td><td>异界版 - 世纪之花</td><td>异界 / 1.4.0.1</td><td class="music-desc">金属曲调，阴郁。</td></tr>
+                    <tr data-src="音乐\Music-Jungle_(Otherworldly).mp3"><td>86</td><td class="music-name">Jungle (OW)</td><td>异界版 - 丛林</td><td>异界 / 1.4.0.1</td><td class="music-desc">宁静，类似手摇琴音乐。</td></tr>
+                    <tr data-src="音乐\Music-Wall_of_Flesh_(Otherworldly).mp3"><td>87</td><td class="music-name">Wall of Flesh (OW)</td><td>异界版 - 肉山/火把神</td><td>无 / 1.4.0.1</td><td class="music-desc">戏剧性，英雄般感觉。</td></tr>
+                    <tr data-src="音乐\Music-Hallow_(Otherworldly).mp3"><td>88</td><td class="music-name">Hallow (OW)</td><td>异界版 - 神圣地表</td><td>异界 / 1.4.0.1</td><td class="music-desc">赞美诗风格，唯一超过2分钟的异界曲。</td></tr>
+                    <tr data-src="音乐\Music-Journey's_End.mp3"><td>89</td><td class="music-name">Journey's End</td><td>制作人员名单</td><td>第 4 辑 / 1.4.1</td><td class="music-desc">英雄庆典，包含许多其他曲子片段。</td></tr>
+                    <tr data-src="音乐\Music-Deerclops.mp3"><td>90</td><td class="music-name">Deerclops</td><td>独眼巨鹿</td><td>无 / 1.4.3</td><td class="music-desc">Klei 编曲。饥荒史诗战斗曲电子版。</td></tr>
+                    <tr data-src="音乐\Music-Aether.mp3"><td>91</td><td class="music-name">Aether</td><td>以太</td><td>无 / 1.4.4</td><td class="music-desc">空灵超现实，宁静。</td></tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="player-footer">
+        <audio id="main-audio"></audio>
+        <div class="now-playing">
+            <span class="track-title" id="track-display">请选择曲目</span>
+            <span class="track-sub" id="cond-display">-</span>
+        </div>
+        <div class="controls">
+            <button class="play-btn" id="play-ctrl">播放</button>
+            <div class="progress-container">
+                <span class="time" id="cur-time">0:00</span>
+                <input type="range" id="seek-bar" value="0" step="0.1">
+                <span class="time" id="total-time">0:00</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('main-audio');
+        const playBtn = document.getElementById('play-ctrl');
+        const seekBar = document.getElementById('seek-bar');
+        const trackList = document.querySelectorAll('#track-list tr');
+        const trackTitle = document.getElementById('track-display');
+        const trackCond = document.getElementById('cond-display');
+        const curTimeEl = document.getElementById('cur-time');
+        const totalTimeEl = document.getElementById('total-time');
+
+        function formatTime(s) {
+            const m = Math.floor(s / 60);
+            const sec = Math.floor(s % 60);
+            return m + ":" + (sec < 10 ? "0" + sec : sec);
+        }
+
+        trackList.forEach(row => {
+            row.addEventListener('click', () => {
+                trackList.forEach(r => r.classList.remove('active'));
+                row.classList.add('active');
+                
+                const name = row.querySelector('.music-name').innerText;
+                const cond = row.cells[2].innerText;
+                const src = row.getAttribute('data-src');
+
+                trackTitle.innerText = name;
+                trackCond.innerText = cond;
+                audio.src = src;
+                audio.play();
+                playBtn.innerText = '暂停';
+            });
+        });
+
+        playBtn.addEventListener('click', () => {
+            if (!audio.src) return;
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerText = '暂停';
+            } else {
+                audio.pause();
+                playBtn.innerText = '播放';
+            }
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            seekBar.max = audio.duration;
+            totalTimeEl.innerText = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            if (!seekBar.dragging) {
+                seekBar.value = audio.currentTime;
+            }
+            curTimeEl.innerText = formatTime(audio.currentTime);
+        });
+
+        seekBar.addEventListener('input', () => {
+            seekBar.dragging = true;
+        });
+
+        seekBar.addEventListener('change', () => {
+            audio.currentTime = seekBar.value;
+            seekBar.dragging = false;
+        });
+
+        audio.addEventListener('ended', () => {
+            playBtn.innerText = '播放';
+        });
+    </script>
+</body>
+</html>

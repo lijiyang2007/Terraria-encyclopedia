@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光之女皇 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #4a1a4a; color: #ff8dfb; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; overflow: hidden; }
+        .infobox-img img { max-width: 100%; height: auto; display: block; margin: 0 auto; image-rendering: pixelated; }
+
+        .mode-section { margin-bottom: 50px; padding: 25px; border-left: 6px solid #555; background: rgba(255, 141, 251, 0.05); }
+        .classic-border { border-color: #ffffff; }
+        .expert-border { border-color: #e282ff; }
+        .master-border { border-color: #ffaa00; }
+
+        .stat-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: #000; padding: 12px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #333; }
+        .stat-bar span { font-size: 14px; }
+        .stat-bar span b { color: #8da9ff; }
+
+        .drop-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .drop-table th, .drop-table td { border: 1px solid #333; padding: 8px 12px; text-align: left; font-size: 13px; }
+        .drop-table th { background: #222; color: #da9100; }
+
+        .enraged-note { color: #ff8dfb; font-weight: bold; border: 2px solid #ff8dfb; padding: 15px; background: rgba(255, 141, 251, 0.1); margin: 20px 0; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .stat-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .drop-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="bosses.html" class="nav-item active">Boss</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>光之女皇 (Empress of Light)</h1>
+            </header>
+            <p style="font-style: italic; color: #888; margin-bottom: 30px;">“神圣之地的虹光守护者，其华丽的攻击如同死亡之舞，在白昼时会展现出足以抹杀一切的绝对力量。”</p>
+
+            <div class="enraged-note">
+                昼间激怒：如果在白天与其战斗，她会进入激怒状态。所有攻击伤害将提升至数万点（足以秒杀任何装备下的玩家），但击败她必定掉落泰拉棱镜。
+            </div>
+
+            <section class="mode-section classic-border">
+                <div class="mode-header" style="color: #ffffff; font-size: 24px; margin-bottom: 15px;">经典模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 70000</span>
+                    <span><b>伤害:</b> 80</span>
+                    <span><b>防御:</b> 50</span>
+                    <span><b>钱币:</b> 25 Gold</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>常规掉落</td><td>七彩副翼 (6.67%) / 炫彩染料 (25%)</td></tr>
+                        <tr><td>武器类</td><td>夜光 / 星光 / 奏鸣曲 / 万华镜 (25%)</td></tr>
+                        <tr><td>纪念物品</td><td>光之女皇面具 (14.29%) / 纪念章 (10%)</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section expert-border">
+                <div class="mode-header" style="color: #e282ff; font-size: 24px; margin-bottom: 15px;">专家模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 98000</span>
+                    <span><b>伤害:</b> 120</span>
+                    <span><b>防御:</b> 50</span>
+                    <span><b>钱币:</b> 50 Gold</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>常规掉落</td><td>七彩副翼 (6.67%)</td></tr>
+                        <tr><td>专家专属</td><td>宝藏袋 (包含翱翔徽章) (100%)</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section master-border">
+                <div class="mode-header" style="color: #ffaa00; font-size: 24px; margin-bottom: 15px;">大师模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 124950</span>
+                    <span><b>伤害:</b> 180</span>
+                    <span><b>防御:</b> 50</span>
+                    <span><b>钱币:</b> 50 Gold</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>专属宠物</td><td>仙灵公主 (25%)</td></tr>
+                        <tr><td>大师圣物</td><td>光之女皇圣物 (100%)</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">光之女皇</div>
+            <div class="infobox-img">
+                <img src="图片/Empress_of_Light.png" alt="Empress of Light">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>Boss</span></div>
+            <div class="infobox-row"><span class="infobox-label">环境</span><span>神圣之地</span></div>
+            <div class="infobox-row"><span class="infobox-label">召唤物</span><span>七彩草蛉 (击杀)</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>636</span></div>
+        </aside>
+    </div>
+</body>
+</html>

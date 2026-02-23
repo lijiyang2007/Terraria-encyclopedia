@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>军火商 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .shop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .shop-table th, .shop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .shop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+        .night-only { color: #ff8d8d; font-size: 12px; font-weight: normal; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                max-width: 90%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title {
+                width: 100%;
+                padding: 15px;
+            }
+            .nav-item {
+                flex: 1;
+                text-align: center;
+                padding: 10px 5px;
+            }
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .shop-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>军火商 (Arms Dealer)</h1>
+            </header>
+            <p class="quote">“别盯着我看，小伙子，枪可不会自己把自己卖出去。”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">入住条件</h2>
+                <p>军火商会在满足以下两个条件时入住：</p>
+                <ul>
+                    <li>有一间合适的<b>空房</b>。</li>
+                    <li>玩家的物品栏中拥有至少一支<b>枪</b>或一颗<b>子弹</b>（由于从暗影珠或猩红心脏中通常能砸出枪支，这通常是玩家邀请他入住的最快方式）。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">出售物品</h2>
+                <p>他的商品清单会随游戏进度和时间变化：</p>
+                <table class="shop-table">
+                    <thead>
+                        <tr>
+                            <th>物品</th>
+                            <th>价格</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>火枪子弹</b></td><td>7 铜币</td><td>最基础的弹药。</td></tr>
+                        <tr><td><b>迷你鲨 (Minishark)</b></td><td>35 金币</td><td>前期极强的速射机枪。</td></tr>
+                        <tr><td><b>非法枪械部件</b></td><td>25 金币</td><td><span class="night-only">仅限夜晚</span>。用于合成高级枪械。</td></tr>
+                        <tr><td><b>燧发枪 / 鲨鱼嘴</b></td><td>由部位决定</td><td>基础远程武器及装饰。</td></tr>
+                        <tr><td><b>空弹壳</b></td><td>3 银币</td><td><span class="highlight">困难模式</span>。用于制作特殊子弹。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">交互细节</h2>
+                <ul>
+                    <li><b>自卫能力：</b>他会使用<b>燧发枪</b>攻击敌怪，在困难模式下会升级为<b>迷你鲨</b>。</li>
+                    <li><b>人际关系：</b>他表现出对<b>护士</b>的强烈好感，如果他们住在一起，他的快乐度会大幅提升。</li>
+                    <li><b>特殊：</b>他非常讨厌<b>爆破专家</b>，如果由于某种原因他们必须住得很近，两人的快乐度都会下降。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">军火商</div>
+            <div class="infobox-img">
+                <img src="图片/Arms_Dealer.webp" alt="Arms Dealer">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>城镇 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">攻击</span><span>燧发枪 / 迷你鲨</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>19</span></div>
+        </aside>
+    </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猪龙鱼公爵 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #1a3b4a; color: #8ddbff; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; overflow: hidden; }
+        .infobox-img img { max-width: 100%; height: auto; display: block; margin: 0 auto; image-rendering: pixelated; }
+
+        .mode-section { margin-bottom: 50px; padding: 25px; border-left: 6px solid #555; background: rgba(0, 150, 255, 0.05); }
+        .classic-border { border-color: #ffffff; }
+        .expert-border { border-color: #e282ff; }
+        .master-border { border-color: #ffaa00; }
+
+        .stat-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: #000; padding: 12px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #333; }
+        .stat-bar span { font-size: 14px; }
+        .stat-bar span b { color: #8da9ff; }
+
+        .drop-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .drop-table th, .drop-table td { border: 1px solid #333; padding: 8px 12px; text-align: left; font-size: 13px; }
+        .drop-table th { background: #222; color: #da9100; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .stat-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .drop-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="bosses.html" class="nav-item active">Boss</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>猪龙鱼公爵 (Duke Fishron)</h1>
+            </header>
+            <p style="font-style: italic; color: #888; margin-bottom: 30px;">“来自深海的变异恐怖，这个半鲨半龙的生物能轻易撕裂最坚固的防御。”</p>
+
+            <section class="mode-section classic-border">
+                <div class="mode-header" style="color: #ffffff; font-size: 24px; margin-bottom: 15px;">经典模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 50000</span>
+                    <span><b>伤害:</b> 100 (冲撞)</span>
+                    <span><b>防御:</b> 50</span>
+                    <span><b>钱币:</b> 1 Gold</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>常规掉落</td><td>猪龙鱼之翼 (6.67%) / 海啸 (20%)</td></tr>
+                        <tr><td>纪念物品</td><td>猪龙鱼公爵面具 (14.29%) / 纪念章 (10%)</td></tr>
+                        <tr><td>专家/大师专属</td><td>无</td></tr>
+                        <tr><td>专属宠物/圣物</td><td>无</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section expert-border">
+                <div class="mode-header" style="color: #e282ff; font-size: 24px; margin-bottom: 15px;">专家模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 60000</span>
+                    <span><b>伤害:</b> 140 (冲撞)</span>
+                    <span><b>防御:</b> 50</span>
+                    <span><b>钱币:</b> 2 Gold 50 Silver</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>常规掉落</td><td>猪龙鱼之翼 (6.67%)</td></tr>
+                        <tr><td>纪念物品</td><td>猪龙鱼公爵面具 (14.29%) / 纪念章 (10%)</td></tr>
+                        <tr><td>专家/大师专属</td><td>宝藏袋 (包含虾松露) (100%)</td></tr>
+                        <tr><td>专属宠物/圣物</td><td>无</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section master-border">
+                <div class="mode-header" style="color: #ffaa00; font-size: 24px; margin-bottom: 15px;">大师模式数据</div>
+                <div class="stat-bar">
+                    <span><b>生命值:</b> 76500</span>
+                    <span><b>伤害:</b> 210 (冲撞)</span>
+                    <span><b>防御:</b> 50</span>
+                    <span><b>钱币:</b> 2 Gold 50 Silver</span>
+                </div>
+                <table class="drop-table">
+                    <thead><tr><th>掉落物类别</th><th>对应物品/概率</th></tr></thead>
+                    <tbody>
+                        <tr><td>常规掉落</td><td>猪龙鱼之翼 (6.67%)</td></tr>
+                        <tr><td>纪念物品</td><td>猪龙鱼公爵面具 (14.29%) / 纪念章 (10%)</td></tr>
+                        <tr><td>专家/大师专属</td><td>宝藏袋 (包含虾松露) (100%)</td></tr>
+                        <tr><td>专属宠物/圣物</td><td>猪龙鱼公爵圣物 (100%) / 猪龙鱼宝宝 (25%)</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">猪龙鱼公爵</div>
+            <div class="infobox-img">
+                <img src="图片/Duke_Fishron.webp" alt="Duke Fishron">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>Boss</span></div>
+            <div class="infobox-row"><span class="infobox-label">环境</span><span>海洋</span></div>
+            <div class="infobox-row"><span class="infobox-label">召唤物</span><span>松露虫 (钓鱼)</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>370</span></div>
+        </aside>
+    </div>
+</body>
+</html>

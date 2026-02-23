@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>血月 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .tier-table, .drop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .tier-table th, .tier-table td, .drop-table th, .drop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .tier-table th, .drop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                max-width: 90%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title {
+                width: 100%;
+                padding: 15px;
+            }
+            .nav-item {
+                flex: 1;
+                text-align: center;
+                padding: 10px 5px;
+            }
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .drop-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="events.html" class="nav-item active">事件</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>血月 (Blood Moon)</h1>
+            </header>
+            <p class="quote">“血月升起来了……”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">发生条件</h2>
+                <p>血月是在整个游戏过程中都可能发生的常见事件，持续一个完整的夜晚（下午 7:30 到上午 4:30）。</p>
+                <ul>
+                    <li><b>自然发生：</b>只要世界上至少有一名玩家的生命值超过 <span class="highlight">120</span> 且当前月相不是新月，每晚都有 <b>1/9 (11.11%)</b> 的几率发生。</li>
+                    <li><b>手动召唤：</b>在夜晚使用 <span class="highlight">血泪</span> 会立即开始血月。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">环境变化</h2>
+                <ul>
+                    <li><b>视觉效果：</b>整个世界会被染成红色，背景、月亮、云朵甚至连水体都会变色。</li>
+                    <li><b>刷怪倍率：</b>敌怪的生成速度显著提高，且能出现在通常不生成敌怪的城镇区域。</li>
+                    <li><b>行为改变：</b>僵尸和其变体能够打开木门；原本中立的兔兔、企鹅和金鱼会变成敌对的腐化/猩红形态。</li>
+                    <li><b>特殊功能：</b>在血月期间钓鱼可以钓起独特的血月敌怪，如漂浮眼球怪和血鳗鱼（困难模式）。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特掉落物</h2>
+                <table class="drop-table">
+                    <thead>
+                        <tr>
+                            <th>物品</th>
+                            <th>来源敌怪</th>
+                            <th>概率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>钱币槽</b></td><td>滴滴怪、血僵尸</td><td>0.5% / 1% (专家)</td></tr>
+                        <tr><td><b>鲨牙项链</b></td><td>滴滴怪、血僵尸</td><td>0.67% / 1.33% (专家)</td></tr>
+                        <tr><td><b>血泪</b></td><td>大部分血月敌怪</td><td>0.5% (常规) / 1% (新娘/新郎)</td></tr>
+                        <tr><td><b>血色飞刀</b></td><td>僵尸新郎</td><td>20%</td></tr>
+                        <tr><td><b>高级钓鱼线</b></td><td>血月钓鱼敌怪</td><td>12.5% / 25% (专家)</td></tr>
+                        <tr><td><b>血月单色镜</b></td><td>僵尸新郎、僵尸新娘</td><td>11.11%</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">血月</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerBloodMoon.webp" alt="Blood Moon">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>自然事件</span></div>
+            <div class="infobox-row"><span class="infobox-label">时间</span><span>7:30 PM - 4:30 AM</span></div>
+            <div class="infobox-row"><span class="infobox-label">召唤物</span><span>血泪</span></div>
+            <div class="infobox-row"><span class="infobox-label">背景音乐</span><span>Eerie (怪诞)</span></div>
+        </aside>
+    </div>
+</body>
+</html>

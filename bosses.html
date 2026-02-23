@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss 列表 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; padding: 0 20px; }
+        .boss-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 20px; 
+            margin-top: 20px; 
+            margin-bottom: 40px;
+        }
+        .boss-card { 
+            background: #1a1a1a; border: 1px solid #333; padding: 20px; 
+            text-align: center; text-decoration: none; 
+            transition: 0.2s; 
+            display: flex; flex-direction: column; align-items: center; 
+            height: 180px; 
+            justify-content: space-between;
+        }
+        .boss-card:hover { background: #252525; border-color: #da9100; transform: translateY(-5px); }
+        
+        .img-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .boss-card img { 
+            max-width: 140px; 
+            max-height: 100px; 
+            image-rendering: pixelated; 
+        }
+        .boss-name {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #ffffff; 
+            font-size: 15px;
+        }
+        .section-title { color: #da9100; border-bottom: 2px solid #333; padding-bottom: 8px; margin-top: 40px; font-size: 22px; }
+    </style>
+</head>
+<body>
+    <nav class="side-nav">
+    <div class="nav-logo">Terraria</div>
+    <a href="index.html" class="nav-item">首页</a>
+    <a href="npcs.html" class="nav-item">NPC</a>
+    <a href="events.html" class="nav-item">事件</a>
+    <a href="bosses.html" class="nav-item">Boss</a>
+    <a href="biomes.html" class="nav-item">生物群系</a>
+    <a href="音乐.html" class="nav-item">音乐</a>
+    </nav>
+    <div class="wiki-container">
+        <header class="wiki-header">
+            <h1>Boss</h1>
+            <p>击败强大的 Boss 是提升进度的核心内容。</p>
+        </header>
+
+        <h2 class="section-title">困难模式前</h2>
+        <div class="boss-grid">
+            <a href="king_slime.html" class="boss-card">
+                <div class="img-container"><img src="图片/King_Slime.png"></div>
+                <span class="boss-name">史莱姆王</span>
+            </a>
+            <a href="eye_of_cthulhu.html" class="boss-card">
+                <div class="img-container"><img src="图片/Eye_of_Cthulhu.webp"></div>
+                <span class="boss-name">克苏鲁之眼</span>
+            </a>
+            <a href="eater_of_worlds.html" class="boss-card">
+                <div class="img-container"><img src="图片/Eater_of_Worlds.webp"></div>
+                <span class="boss-name">世界吞噬者</span>
+            </a>
+            <a href="brain_of_cthulhu.html" class="boss-card">
+                <div class="img-container"><img src="图片/Brain_of_Cthulhu.png"></div>
+                <span class="boss-name">克苏鲁之脑</span>
+            </a>
+            <a href="queen_bee.html" class="boss-card">
+                <div class="img-container"><img src="图片/Queen_Bee.webp"></div>
+                <span class="boss-name">蜂王</span>
+            </a>
+            <a href="skeletron.html" class="boss-card">
+                <div class="img-container"><img src="图片/Skeletron.png"></div>
+                <span class="boss-name">骷髅王</span>
+            </a>
+            <a href="deerclops.html" class="boss-card">
+                <div class="img-container"><img src="图片/Deerclops.webp"></div>
+                <span class="boss-name">独眼巨鹿</span>
+            </a>
+            <a href="wall_of_flesh.html" class="boss-card">
+                <div class="img-container"><img src="图片/Wall_of_Flesh.webp"></div>
+                <span class="boss-name">肉山</span>
+            </a>
+        </div>
+
+        <h2 class="section-title">困难模式</h2>
+        <div class="boss-grid">
+            <a href="queen_slime.html" class="boss-card">
+                <div class="img-container"><img src="图片/Queen_Slime.png"></div>
+                <span class="boss-name">史莱姆皇后</span>
+            </a>
+            <a href="the_twins.html" class="boss-card">
+                <div class="img-container"><img src="图片/The_Twins.webp"></div>
+                <span class="boss-name">双子魔眼</span>
+            </a>
+            <a href="the_destroyer.html" class="boss-card">
+                <div class="img-container"><img src="图片/The_Destroyer.png"></div>
+                <span class="boss-name">毁灭者</span>
+            </a>
+            <a href="skeletron_prime.html" class="boss-card">
+                <div class="img-container"><img src="图片/Skeletron_Prime.webp"></div>
+                <span class="boss-name">机械骷髅王</span>
+            </a>
+            <a href="plantera.html" class="boss-card">
+                <div class="img-container"><img src="图片/Plantera.png"></div>
+                <span class="boss-name">世纪之花</span>
+            </a>
+            <a href="golem.html" class="boss-card">
+                <div class="img-container"><img src="图片/Golem.png"></div>
+                <span class="boss-name">石巨人</span>
+            </a>
+            <a href="duke_fishron.html" class="boss-card">
+                <div class="img-container"><img src="图片/Duke_Fishron.webp"></div>
+                <span class="boss-name">猪鲨公爵</span>
+            </a>
+            <a href="empress_of_light.html" class="boss-card">
+                <div class="img-container"><img src="图片/Empress_of_Light.png"></div>
+                <span class="boss-name">光之女皇</span>
+            </a>
+            <a href="lunatic_cultist.html" class="boss-card">
+                <div class="img-container"><img src="图片/Lunatic_Cultist.webp"></div>
+                <span class="boss-name">拜月教邪教徒</span>
+            </a>
+            <a href="moon_lord.html" class="boss-card">
+                <div class="img-container"><img src="图片/Moon_Lord.webp"></div>
+                <span class="boss-name">月亮领主</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

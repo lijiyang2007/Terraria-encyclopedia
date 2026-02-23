@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动物学家 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .shop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .shop-table th, .shop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .shop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>动物学家 (Zoologist)</h1>
+            </header>
+            <p class="quote">“我真的很喜欢动物！像这只狐狸尾巴？哦，这只是个说来话长的诅咒……”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">入住条件</h2>
+                <p>动物学家会在满足以下条件时搬入：</p>
+                <ul>
+                    <li>有一间合适的<b>空房</b>。</li>
+                    <li>玩家的<b>生物图鉴 (Bestiary)</b> 完成度至少达到 <span class="highlight">10% (54 个条目)</span>。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特机制：形态转化</h2>
+                <div class="transformation-note">
+                    动物学家是一名<b>狐人</b>。她的外观会根据时间改变：
+                    <ul>
+                        <li><b>白天：</b>看起来基本是人类，但长有狐狸耳朵和尾巴。</li>
+                        <li><b>满月或血月：</b>她会完全转化为<b>狐人形态</b>，性格会变得更加狂野且对话也会发生改变。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">出售物品</h2>
+                <p>她的库存随生物图鉴的解锁进度而扩大，出售大量宠物、坐骑和召唤武器：</p>
+                <table class="shop-table">
+                    <thead>
+                        <tr>
+                            <th>物品</th>
+                            <th>解锁要求</th>
+                            <th>用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>小动物友谊指南</b></td><td>10% 图鉴</td><td>防止玩家意外杀害小动物。</td></tr>
+                        <tr><td><b>皮鞭</b></td><td>10% 图鉴</td><td>基础召唤师长鞭武器。</td></tr>
+                        <tr><td><b>火烈鸟许可</b></td><td>25% 图鉴</td><td>使用后允许购买火烈鸟坐骑。</td></tr>
+                        <tr><td><b>万能晶塔</b></td><td>100% 图鉴</td><td>可以在任何生物群系中放置。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">交互细节</h2>
+                <ul>
+                    <li><b>自卫能力：</b>她会使用<b>爪子</b>近战攻击附近的敌怪。</li>
+                    <li><b>人际关系：</b>她是<b>高尔夫球手</b>的妹妹，且非常讨厌玩家在附近杀害小动物。</li>
+                    <li><b>环境偏好：</b>她非常喜欢居住在 <b>森林</b>。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">动物学家</div>
+            <div class="infobox-img">
+                <img src="图片/Zoologist.webp" alt="Zoologist">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>城镇 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">攻击</span><span>爪击</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>633</span></div>
+        </aside>
+    </div>
+</body>
+</html>

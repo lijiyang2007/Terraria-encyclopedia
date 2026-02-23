@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>护士 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .mechanic-box { background: #111; border: 1px solid #333; padding: 15px; margin-top: 15px; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+        .warning { color: #ff8d8d; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>护士 (Nurse)</h1>
+            </header>
+            <p class="quote">“我不给免费的检查，我还要付账单呢。”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">入住条件</h2>
+                <p>护士会在满足以下条件时搬入：</p>
+                <ul>
+                    <li>有一间合适的<b>空房</b>。</li>
+                    <li>玩家的最大生命值超过 <span class="highlight">100</span>（使用过至少一个生命水晶）。</li>
+                    <li><b>商人</b>已经入住。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">治疗服务</h2>
+                <p>护士的主要功能是即时恢复玩家的生命值并移除几乎所有的<b>减益 (Debuffs)</b>。</p>
+                <div class="mechanic-box">
+                    <b style="color: #ffaa00;">治疗规则：</b>
+                    <ul>
+                        <li><b>即时回血：</b>点击“治疗”按钮会瞬间将生命值补满。</li>
+                        <li><b>净化效果：</b>移除诸如中毒、着火了！、流血等负面状态（不包括某些特殊的减益，如抗性减益）。</li>
+                        <li><b>价格：</b>治疗费用取决于玩家损失的生命值数量以及身上的减益数量。随着游戏进度的推进（如击败 Boss 后），基础价格会上升。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">交互细节</h2>
+                <ul>
+                    <li><b>自我修复：</b>当护士受到伤害时，她会通过投掷粉色针筒给自己回血，这使她在战斗中非常坚韧。</li>
+                    <li><b>Boss 战策略：</b>许多玩家会将护士的房子盖在 Boss 战场附近，以便在生命垂危时快速传送回来回血。</li>
+                    <li><span class="warning">注意：</span>如果护士在治疗过程中死亡，玩家将失去这一重要的回血来源，直到她重新入住。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">护士</div>
+            <div class="infobox-img">
+                <img src="图片/Nurse.webp" alt="Nurse">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>城镇 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">攻击</span><span>自卫针筒</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>18</span></div>
+        </aside>
+    </div>
+</body>
+</html>

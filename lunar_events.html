@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月亮事件 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }
+        .pillar-item { background: #111; border: 1px solid #333; padding: 15px; border-top: 4px solid #fff; font-size: 14px; }
+        .solar { border-top-color: #ff8000; }
+        .vortex { border-top-color: #00ffcc; }
+        .nebula { border-top-color: #ff00ff; }
+        .stardust { border-top-color: #00aaff; }
+
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .pillar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="events.html" class="nav-item active">事件</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>月亮事件 (Lunar Events)</h1>
+            </header>
+            <p class="quote">“天界生物正在入侵！”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">启动方式</h2>
+                <p>月亮事件是游戏的终局内容，只有通过击败特定的 Boss 才能开启。</p>
+                <ul>
+                    <li><b>触发源：</b>在击败 <span class="highlight">拜月教邪教徒</span> 后立即开始。</li>
+                    <li><b>环境变化：</b>世界中会生成四个<b>天界柱</b>，分布在地图的不同区域。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">天界柱机制</h2>
+                <p>每个天界柱最初都有一个无敌的护盾。玩家必须在其附近击杀足够数量的专属敌怪才能破除护盾：</p>
+                <ul>
+                    <li><b>击杀需求：</b>在经典模式下需击杀 <span class="highlight">100</span> 只敌怪（专家/大师模式为 150 只）。</li>
+                    <li><b>护盾破除：</b>护盾消失后，玩家可以直接攻击并摧毁天界柱。</li>
+                </ul>
+
+                <div class="pillar-grid">
+                    <div class="pillar-item solar">
+                        <b style="color: #ff8000;">日耀柱 (Solar Pillar)</b><br>
+                        对应近战职业。其敌怪防御极高，千足龙会强制玩家留在地面。
+                    </div>
+                    <div class="pillar-item vortex">
+                        <b style="color: #00ffcc;">星旋柱 (Vortex Pillar)</b><br>
+                        对应远程职业。敌怪速度快且具有远程打击能力，会施加重力扭曲。
+                    </div>
+                    <div class="pillar-item nebula">
+                        <b style="color: #ff00ff;">星云柱 (Nebula Pillar)</b><br>
+                        对应魔法职业。敌怪拥有复杂的魔法攻击，甚至会通过传送干扰玩家。
+                    </div>
+                    <div class="pillar-item stardust">
+                        <b style="color: #00aaff;">星尘柱 (Stardust Pillar)</b><br>
+                        对应召唤职业。敌怪会不断分裂和增殖，数量优势极大。
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">最终对决</h2>
+                <p>当最后一个天界柱被摧毁后，屏幕会震动且提示：<span class="highlight">“月亮领主即将降临……”</span></p>
+                <p>大约 1 分钟后，最终 Boss <b>月亮领主</b> 会在玩家当前位置生成。如果玩家在此期间死亡，月亮领主将不再生成，需要重新开始事件。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">重要奖励</h2>
+                <ul>
+                    <li><b>天界碎片：</b>每个柱子都会掉落对应的碎片（日耀、星旋、星云、星尘），用于在古代操纵机处制作最终的毕业武器和盔甲。</li>
+                    <li><b>毕业武器：</b>如日耀喷发、幻影弓、星云烈焰、星尘龙法杖等。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">月亮事件</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerLunarEvent.webp" alt="Lunar Events">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>终局事件</span></div>
+            <div class="infobox-row"><span class="infobox-label">触发源</span><span>拜月教邪教徒</span></div>
+            <div class="infobox-row"><span class="infobox-label">后续 Boss</span><span>月亮领主</span></div>
+            <div class="infobox-row"><span class="infobox-label">背景音乐</span><span>The Towers</span></div>
+        </aside>
+    </div>
+</body>
+</html>

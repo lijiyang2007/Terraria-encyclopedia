@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生物群系 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        .wiki-container { margin: 40px auto; max-width: 1200px; padding: 0 20px; }
+        .biome-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            gap: 20px; 
+            margin-top: 20px; 
+            margin-bottom: 40px;
+        }
+        .biome-card { 
+            background: #1a1a1a; border: 1px solid #333; padding: 20px; 
+            text-align: center; text-decoration: none; transition: 0.2s; 
+            display: flex; flex-direction: column; align-items: center; 
+            height: 180px; justify-content: space-between;
+        }
+        .biome-card:hover { background: #252525; border-color: #da9100; transform: translateY(-5px); }
+        .img-container { flex-grow: 1; display: flex; align-items: center; justify-content: center; width: 100%; }
+        .biome-card img { max-width: 160px; max-height: 90px; image-rendering: pixelated; }
+        .biome-name { margin-top: 10px; font-weight: bold; color: #ffffff; font-size: 15px; }
+        .section-title { color: #da9100; border-bottom: 2px solid #333; padding-bottom: 8px; margin-top: 40px; font-size: 22px; }
+    </style>
+</head>
+<body>
+    <nav class="side-nav">
+        <div class="nav-logo">Terraria</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item">NPC</a>
+        <a href="events.html" class="nav-item">事件</a>
+        <a href="bosses.html" class="nav-item">Boss</a>
+        <a href="biomes.html" class="nav-item">生物群系</a>
+        <a href="音乐.html" class="nav-item">音乐</a>
+    </nav>
+
+    <div class="wiki-container">
+        <header class="wiki-header">
+            <h1>生物群系 (Biomes)</h1>
+            <p>包含泰拉瑞亚中所有的 21 个地理区域与环境。</p>
+        </header>
+
+        <h2 class="section-title">全部生物群系</h2>
+        <div class="biome-grid">
+            <a href="forest.html" class="biome-card">
+                <div class="img-container"><img src="图片/20px-Bestiary_Surface.webp"></div>
+                <span class="biome-name">森林</span>
+            </a>
+            <a href="underground.html" class="biome-card">
+                <div class="img-container"><img src="图片/18px-Bestiary_Underground.webp"></div>
+                <span class="biome-name">地下层</span>
+            </a>
+            <a href="caverns.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Caverns.webp"></div>
+                <span class="biome-name">洞穴层</span>
+            </a>
+            <a href="underworld.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_The_Underworld.webp"></div>
+                <span class="biome-name">地狱</span>
+            </a>
+            <a href="space.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Sky.webp"></div>
+                <span class="biome-name">太空</span>
+            </a>
+            <a href="snow.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Snow.webp"></div>
+                <span class="biome-name">雪原生物群系</span>
+            </a>
+            <a href="ice.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Underground_Snow.webp"></div>
+                <span class="biome-name">冰雪生物群系</span>
+            </a>
+            <a href="desert.html" class="biome-card">
+                <div class="img-container"><img src="图片/18px-Bestiary_Desert.webp"></div>
+                <span class="biome-name">沙漠</span>
+            </a>
+            <a href="underground_desert.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Underground_Desert.webp"></div>
+                <span class="biome-name">地下沙漠</span>
+            </a>
+            <a href="ocean.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Ocean.webp"></div>
+                <span class="biome-name">海洋</span>
+            </a>
+            <a href="jungle.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_The_Jungle.webp"></div>
+                <span class="biome-name">丛林</span>
+            </a>
+            <a href="underground_jungle.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Underground_Jungle.webp"></div>
+                <span class="biome-name">地下丛林</span>
+            </a>
+            <a href="jungle_temple.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_The_Temple.webp"></div>
+                <span class="biome-name">丛林神庙</span>
+            </a>
+            <a href="mushroom.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Surface_Mushroom.webp"></div>
+                <span class="biome-name">发光蘑菇生物群系</span>
+            <a href="corruption.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_The_Corruption.webp"></div>
+                <span class="biome-name">腐化之地</span>
+            </a>
+            <a href="underground_corruption.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Underground_Corruption.webp"></div>
+                <span class="biome-name">地下腐化之地</span>
+            </a>
+            <a href="crimson.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_The_Crimson.webp"></div>
+                <span class="biome-name">猩红之地</span>
+            </a>
+            <a href="underground_crimson.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Underground_Crimson.webp"></div>
+                <span class="biome-name">地下猩红之地</span>
+            </a>
+            <a href="hallow.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_The_Hallow.webp"></div>
+                <span class="biome-name">神圣之地</span>
+            </a>
+            <a href="underground_hallow.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_Underground_Hallow.webp"></div>
+                <span class="biome-name">地下神圣之地</span>
+            </a>
+            <a href="dungeon.html" class="biome-card">
+                <div class="img-container"><img src="图片/22px-Bestiary_The_Dungeon.webp"></div>
+                <span class="biome-name">地牢</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

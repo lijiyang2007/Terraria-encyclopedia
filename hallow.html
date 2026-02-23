@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神圣之地 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3d1a3a; color: #ff8df5; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .mob-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .mob-table th, .mob-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .mob-table th { background: #2a1a28; color: #ff8df5; }
+        
+        .highlight { color: #da9100; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .mob-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>神圣之地 (The Hallow)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                <p>神圣之地是唯一能与腐化或猩红抗衡的群系。它由<b>神圣草</b>、深粉色的叶子和彩虹背景组成。它不仅会自动在世界中生成，还会像邪恶群系一样通过方块蔓延，但它不会像腐化/猩红那样让 NPC 搬走。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <table class="mob-table">
+                    <thead>
+                        <tr>
+                            <th>敌怪</th>
+                            <th>时间</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>独角兽</b></td><td>全天</td><td>移动速度极快，会发起冲撞攻击。掉落独角兽角。</td></tr>
+                        <tr><td><b>精灵</b></td><td>夜晚</td><td>飞行敌怪，会发射光点弹幕。掉落精灵尘。</td></tr>
+                        <tr><td><b>腹足怪</b></td><td>夜晚</td><td>粉色的飞行史莱姆，远距离喷射高伤害激光。</td></tr>
+                        <tr><td><b>七彩草蛉</b></td><td>夜晚</td><td><span class="highlight">击败世纪之花后</span>。击杀它会召唤 Boss <b>光之女皇</b>。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">关键资源</h2>
+                <ul>
+                    <li><b>珍珠木：</b>神圣之地的基础木材，可制作粉色调的家具。</li>
+                    <li><b>水晶碎块：</b>在地下的神圣石块上生长，是制作魔力水晶和高级弹药的核心。</li>
+                    <li><b>神圣种子：</b>可以从树妖处购买，用于人工播种神圣群系。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">居住建议</h2>
+                <p>神圣之地是少数 NPC 喜欢的“特殊”群系：</p>
+                <ul>
+                    <li><span class="highlight">派对女孩</span>（最爱）</li>
+                    <li><span class="highlight">巫师</span>（喜欢）</li>
+                    <li><span class="highlight">护士</span>（喜欢）</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">神圣之地</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerHallow.webp" alt="Hallow">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>珍珠石、珍珠沙、粉冰雪</span></div>
+            <div class="infobox-row"><span class="infobox-label">出现时期</span><span>困难模式 (肉后)</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>高</span></div>
+        </aside>
+    </div>
+</body>
+</html>

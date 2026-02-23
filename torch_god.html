@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火把神 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .reward-box { background: #000; border: 1px solid #da9100; padding: 20px; margin-top: 15px; display: flex; align-items: center; gap: 20px; border-radius: 4px; }
+        .reward-img { width: 40px; height: 40px; image-rendering: pixelated; flex-shrink: 0; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .reward-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="events.html" class="nav-item active">事件</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>火把神 (The Torch God)</h1>
+            </header>
+            <p class="quote">“你已经证明了你对火把的尊重。”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">启动方式</h2>
+                <p>火把神是一个可以在游戏早期尝试的迷你事件。它不通过特定的消耗品召唤，而是通过放置行为触发。</p>
+                <ul>
+                    <li><b>位置要求：</b>必须在 <span class="highlight">地下 (Underground)</span> 层或更深处（地表以下约 200 英尺）。</li>
+                    <li><b>触发条件：</b>在紧凑的区域内放置至少 <span class="highlight">101</span> 根任何类型的火把。</li>
+                    <li><b>冷却机制：</b>如果玩家已经使用了“火把神的恩赐”，或者背包里已经有该物品，则事件不会再次触发。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">事件过程</h2>
+                <ul>
+                    <li><b>攻击模式：</b>一旦开始，周围的火把会逐一熄灭，并向玩家发射火球。这些火球具有轻微的追踪性且能穿透墙壁。</li>
+                    <li><b>生存目标：</b>玩家需要躲避总共 99 次火球攻击。在此期间，玩家会受到<b>黑化</b>减益的影响，光照强度骤降。</li>
+                    <li><b>胜利：</b>当所有火把耗尽后，火把会重新点亮，事件宣布成功。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">事件奖励</h2>
+                <p>成功完成后，玩家会获得关键的功能性消耗品：</p>
+                <div class="reward-box">
+                    <img src="https://terraria.wiki.gg/images/1/1b/The_Torch_God.png" class="reward-img" alt="Torch God's Favor">
+                    <div>
+                        <b style="color: #ffaa00;">火把神的恩赐 (Torch God's Favor)</b><br>
+                        使用后，玩家可以开启一个左侧物品栏的切换按钮。开启后，放置的所有普通火把会自动转变为当前生物群系对应的特色火把，从而增加<b>火把运气</b>。
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">火把神</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerTorchGod.webp" alt="The Torch God">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>迷你事件</span></div>
+            <div class="infobox-row"><span class="infobox-label">发生深度</span><span>地下及以下</span></div>
+            <div class="infobox-row"><span class="infobox-label">触发数量</span><span>101 根火把</span></div>
+            <div class="infobox-row"><span class="infobox-label">背景音乐</span><span>Boss 3</span></div>
+        </aside>
+    </div>
+</body>
+</html>

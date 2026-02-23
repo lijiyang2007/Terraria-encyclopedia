@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地牢 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #2a2a3d; color: #8da9ff; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .loot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 15px; margin-top: 15px; }
+        .loot-item { background: #111; border: 1px solid #333; padding: 10px; border-radius: 4px; border-top: 2px solid #8da9ff; font-size: 13px; }
+        
+        .guardian-note { color: #ff4444; font-weight: bold; border: 2px solid #ff4444; padding: 15px; background: rgba(255, 68, 68, 0.1); margin-top: 15px; }
+        .highlight { color: #da9100; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+            .loot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .loot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>地牢 (The Dungeon)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">进入条件</h2>
+                <div class="guardian-note">
+                    警告：在击败 <span class="highlight">骷髅王</span> 之前尝试进入地牢深度，会立刻遭到 <b>地牢守卫者</b> 的秒杀攻击。
+                </div>
+                <p>玩家需要在地牢入口与老人对话并召唤骷髅王。击败它后，地牢将对玩家开放安全探索权限。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">地牢宝藏</h2>
+                <p>地牢中分布着需要<b>金钥匙</b>开启的金箱子，以及后期需要<b>环境钥匙</b>开启的环境箱：</p>
+                <div class="loot-grid">
+                    <div class="loot-item"><b>钴蓝盾：</b>免疫击退。</div>
+                    <div class="loot-item"><b>村正：</b>极快攻速。</div>
+                    <div class="loot-item"><b>暗影钥匙：</b>开地狱箱。</div>
+                    <div class="loot-item"><b>环境武器：</b>顶级输出。</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">阶段变化</h2>
+                <ul>
+                    <li><b>肉前：</b>以各种骷髅、愤怒骷髅和暗黑法师为主。</li>
+                    <li><b>肉后（世纪之花后）：</b>出现<b>战术骷髅、圣骑士、地牢幽魂</b>，并掉落幽灵锭材料。</li>
+                    <li><b>终局：</b>击败石巨人后出现<b>信徒</b>，开启月亮事件。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <ul>
+                    <li><b>愤怒骷髅：</b>基础步兵敌怪。</li>
+                    <li><b>诅咒骷髅头：</b>穿墙并施加诅咒。</li>
+                    <li><b>地牢史莱姆：</b>携带金钥匙。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">地牢</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerDungeon.webp" alt="Dungeon">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>地牢砖</span></div>
+            <div class="infobox-row"><span class="infobox-label">关键 NPC</span><span>老人、机械师</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>极高 (后期剧变)</span></div>
+        </aside>
+    </div>
+</body>
+</html>

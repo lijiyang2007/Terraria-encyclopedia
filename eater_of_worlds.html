@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界吞噬者 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3b2d26; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .mode-section { margin-bottom: 50px; padding: 25px; border-left: 6px solid #555; background: rgba(124, 82, 149, 0.05); }
+        .classic-border { border-color: #ffffff; }
+        .expert-border { border-color: #e282ff; }
+        .master-border { border-color: #ffaa00; }
+
+        .segment-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .segment-table th, .segment-table td { border: 1px solid #444; padding: 10px; text-align: center; font-size: 14px; }
+        .segment-table th { background: #222; color: #da9100; }
+        
+        .stat-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; background: #000; padding: 12px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #333; }
+        .stat-bar span { font-size: 14px; }
+        .stat-bar span b { color: #8da9ff; }
+
+        .drop-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .drop-table td { border: 1px solid #333; padding: 8px 12px; font-size: 13px; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .stat-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .segment-table, .drop-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="bosses.html" class="nav-item active">Boss</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>世界吞噬者 (Eater of Worlds)</h1>
+            </header>
+            <p style="font-style: italic; color: #888;">“居住在腐化之地的巨虫。”</p>
+
+            <section class="mode-section classic-border">
+                <h2 style="color: #ffffff;">经典模式数据</h2>
+                <div class="stat-bar">
+                    <span><b>总生命值:</b> 10050 / 7500</span>
+                    <span><b>体节数:</b> 67 / 50</span>
+                    <span><b>钱币:</b> 8 Gold</span>
+                </div>
+                <table class="segment-table">
+                    <thead><tr><th>体节</th><th>生命值</th><th>伤害</th><th>防御</th></tr></thead>
+                    <tbody>
+                        <tr><td>头部</td><td>150</td><td>22</td><td>2</td></tr>
+                        <tr><td>身体</td><td>150</td><td>13</td><td>4</td></tr>
+                        <tr><td>尾部</td><td>150</td><td>11</td><td>8</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="mode-section expert-border">
+                <h2 style="color: #e282ff;">专家模式数据</h2>
+                <div class="stat-bar">
+                    <span><b>总生命值:</b> 15120</span>
+                    <span><b>体节数:</b> 72</span>
+                    <span><b>钱币:</b> 20 Gold</span>
+                </div>
+                <table class="segment-table">
+                    <thead><tr><th>体节</th><th>生命值</th><th>伤害</th><th>防御</th></tr></thead>
+                    <tbody>
+                        <tr><td>头部</td><td>210</td><td>48</td><td>2</td></tr>
+                        <tr><td>身体</td><td>210</td><td>28</td><td>4</td></tr>
+                        <tr><td>尾部</td><td>210</td><td>24</td><td>8</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size:13px; color:#e282ff;">* 周期性发射魔唾液，5%几率施加虚弱减益（持续10分钟）</p>
+            </section>
+
+            <section class="mode-section master-border">
+                <h2 style="color: #ffaa00;">大师模式数据</h2>
+                <div class="stat-bar">
+                    <span><b>总生命值:</b> 19224</span>
+                    <span><b>体节数:</b> 72</span>
+                    <span><b>钱币:</b> 20 Gold</span>
+                </div>
+                <table class="segment-table">
+                    <thead><tr><th>体节</th><th>生命值</th><th>伤害</th><th>防御</th></tr></thead>
+                    <tbody>
+                        <tr><td>头部</td><td>267</td><td>72</td><td>2</td></tr>
+                        <tr><td>身体</td><td>267</td><td>42</td><td>4</td></tr>
+                        <tr><td>尾部</td><td>267</td><td>36</td><td>8</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size:13px; color:#ffaa00;">* 虚弱减益持续时间增加至 12 分钟 30 秒</p>
+                <table class="drop-table">
+                    <tr style="background:#222;"><td colspan="2" style="color:#ffaa00;"><b>大师专属掉落</b></td></tr>
+                    <tr><td>世界吞噬者圣物</td><td>100%</td></tr>
+                    <tr><td>蠕动残骸 (宠物)</td><td>25%</td></tr>
+                </table>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">世界吞噬者</div>
+            <div class="infobox-img">
+                <img src="图片/Eater_of_Worlds.webp" alt="世界吞噬者">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>Boss / 钻地敌怪</span></div>
+            <div class="infobox-row"><span class="infobox-label">环境</span><span>腐化之地</span></div>
+            <div class="infobox-row"><span class="infobox-label">AI 类型</span><span>蠕虫 AI</span></div>
+            <div class="infobox-row"><span class="infobox-label">免疫</span><span>击退, 熔岩</span></div>
+        </aside>
+    </div>
+</body>
+</html>

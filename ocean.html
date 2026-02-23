@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海洋 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #1a2e4d; color: #00e5ff; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .loot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; margin-top: 15px; }
+        .loot-item { background: #111; border: 1px solid #333; padding: 10px; border-radius: 4px; border-top: 2px solid #00e5ff; font-size: 13px; }
+        
+        .breathing-note { color: #8da9ff; font-weight: bold; border: 1px dashed #8da9ff; padding: 10px; display: inline-block; margin-top: 10px; }
+        .highlight { color: #da9100; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .loot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>海洋 (Ocean)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                <p>海洋生物群系位于世界地图的最左端和最右端。它由极深的水域和沙质海底组成。这里长有<b>棕榈树</b>和珊瑚。海洋是早期获取机动性饰品（如鳍脚、呼吸管）的重要场所，也是寻找<b>垂钓者</b> NPC 的必经之地。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">水下生存</h2>
+                <p>在没有特殊装备的情况下，玩家在水下的停留时间有限：</p>
+                <div class="breathing-note">
+                    生存提示：早期可以使用<b>芦苇呼吸管</b>来延长水下呼吸时间，或者寻找由于地形生成的空气泡。后期推荐使用<b>海神贝壳</b>或<b>鳃之药水</b>。
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心宝藏：水中箱</h2>
+                <p>潜入海底，你可能会在海底沙洞中发现水中箱：</p>
+                <div class="loot-grid">
+                    <div class="loot-item"><b>三叉戟：</b>基础的强力长矛类近战武器。</div>
+                    <div class="loot-item"><b>鳍脚：</b>允许玩家在水中游泳，大幅提升机动性。</div>
+                    <div class="loot-item"><b>水上漂靴：</b>允许玩家直接在水面上行走。</div>
+                    <div class="loot-item"><b>鲨鱼牙项链：</b>极佳的早期饰品，提供 5 点护甲穿透。</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪与 Boss</h2>
+                <ul>
+                    <li><b>粉水母 / 鲨鱼：</b>海域最常见的威胁，掉落项链或潜水镜。</li>
+                    <li><b>受束缚的垂钓者：</b>通常漂浮在海面上或躺在沙滩上，营救后可开始钓鱼任务。</li>
+                    <li><b>猪龙鱼公爵 (Duke Fishron)：</b><span class="highlight">困难模式</span>。在海洋中使用<b>松露虫</b>钓鱼可召唤此 Boss。</li>
+                    <li><b>恐怖僵尸：</b>仅在血月期间出现，掉落血腥泪滴。</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">海洋</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerOcean.webp" alt="Ocean">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>沙块、珊瑚、棕榈木</span></div>
+            <div class="infobox-row"><span class="infobox-label">群系晶塔</span><span>海洋晶塔</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>低 (地表) / 高 (深海)</span></div>
+        </aside>
+    </div>
+</body>
+</html>

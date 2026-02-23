@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雪原 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #2b3a4a; color: #a3e4ff; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .mob-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .mob-table th, .mob-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .mob-table th { background: #1e252a; color: #a3e4ff; }
+        
+        .weather-note { color: #8da9ff; font-weight: bold; border: 1px solid #8da9ff; padding: 10px; display: inline-block; margin-top: 10px; }
+        .highlight { color: #da9100; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .mob-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>雪原 (Snow Biome)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                
+                <p>雪原生物群系通常出现在森林群系的对侧（远离丛林的一侧）。这里的地面由<b>雪块</b>和<b>冰雪块</b>组成。在降雨期间，雪原会经历特殊的<b>暴雪</b>天气，能见度下降且会出现特定的敌怪。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特环境要素</h2>
+                <ul>
+                    <li><b>薄冰：</b>覆盖在地下水池上，玩家坠落其上会破碎（除非穿戴溜冰鞋）。</li>
+                    <li><b>冰雪小屋：</b>地下雪原特有的建筑，包含冰雪箱。</li>
+                    <li><b>寒冷减益：</b>在专家或大师模式中，接触到冰冷的水会产生致命的缓慢效果。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <table class="mob-table">
+                    <thead>
+                        <tr>
+                            <th>敌怪</th>
+                            <th>时间/区域</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>冰雪史莱姆</b></td><td>白天/夜晚</td><td>基础敌怪。</td></tr>
+                        <tr><td><b>脸怪</b></td><td>地表夜晚</td><td>具有较高的击退抗性。</td></tr>
+                        <tr><td><b>冰雪幽灵</b></td><td>地下</td><td>能够穿墙并对玩家施加冰冻效果。</td></tr>
+                        <tr><td><b>冰雪巨魔</b></td><td><span class="highlight">困难模式</span></td><td>生命值极高，且掉落珍贵的冰雪羽毛。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">居住建议</h2>
+                <p>许多 NPC 对严寒有着不错的适应力：</p>
+                <ul>
+                    <li><span class="highlight">机械师</span>（最爱）</li>
+                    <li><span class="highlight">税收官</span>（喜欢）</li>
+                    <li><span class="highlight">圣诞老人</span>（仅在圣诞节期间且喜欢此地）</li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">雪原</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerSnow.webp" alt="Snow">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>雪块、冰雪块</span></div>
+            <div class="infobox-row"><span class="infobox-label">特殊天气</span><span>暴雪</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>中等</span></div>
+        </aside>
+    </div>
+</body>
+</html>

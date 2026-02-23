@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>树妖 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .shop-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .shop-table th, .shop-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .shop-table th { background: #2a231a; color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+        .blessing-box { background: rgba(141, 169, 255, 0.1); border: 1px solid #8da9ff; padding: 15px; margin-top: 15px; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .shop-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>树妖 (Dryad)</h1>
+            </header>
+            <p class="quote">“你应该更加努力地保护这个世界的生态系统。”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">入住条件</h2>
+                <p>树妖会在满足以下条件时搬入：</p>
+                <ul>
+                    <li>有一间合适的<b>空房</b>。</li>
+                    <li>击败以下 Boss 中的任意一个：<span class="highlight">克苏鲁之眼</span>、<span class="highlight">世界吞噬怪</span>、<span class="highlight">克苏鲁之脑</span> 或 <span class="highlight">蜂王</span>。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心功能：状态报告</h2>
+                <p>选择“状态”选项后，树妖会告诉你世界中<b>腐化/猩红</b>和<b>神圣</b>土地的占比。这对于玩家监控群系蔓延至关重要。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">特殊能力：树妖祝福</h2>
+                <div class="blessing-box">
+                    当敌怪在附近时，树妖会创造一个圆形的<b>自然光环</b>。处于其中的玩家会获得：
+                    <ul>
+                        <li><b>防御力：</b>增加 8 点。</li>
+                        <li><b>荆棘效果：</b>将部分受到的伤害反弹给攻击者。</li>
+                        <li><b>生命再生：</b>略微提升。</li>
+                    </ul>
+                    同时，光环内的敌怪会受到持续的“树妖惩罚”伤害。
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">出售物品</h2>
+                <table class="shop-table">
+                    <thead>
+                        <tr>
+                            <th>物品</th>
+                            <th>价格</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>净化粉</b></td><td>75 铜币</td><td>将腐化/猩红块变回普通块。</td></tr>
+                        <tr><td><b>各种种子</b></td><td>按种类</td><td>草、花、南瓜等。</td></tr>
+                        <tr><td><b>向日葵</b></td><td>50 银币</td><td>阻止腐化蔓延并提供移动加成。</td></tr>
+                        <tr><td><b>树妖时装</b></td><td>由部位决定</td><td>在万圣节期间出售。</td></tr>
+                        <tr><td><b>群系晶塔</b></td><td>10 金币</td><td>在对应群系且快乐度足够时出售。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">树妖</div>
+            <div class="infobox-img">
+                <img src="图片/Dryad.webp" alt="Dryad">
+            </div>
+            
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>城镇 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">攻击</span><span>树妖祝福 (光环)</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>20</span></div>
+        </aside>
+    </div>
+</body>
+</html>

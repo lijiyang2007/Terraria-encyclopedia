@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税收官 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #3c2a1e; color: #da9100; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .income-box { background: rgba(218, 145, 0, 0.1); border: 1px solid #da9100; padding: 15px; margin-top: 15px; border-radius: 4px; }
+        .income-box b { color: #ffaa00; }
+        
+        .quote { font-style: italic; color: #888; margin-bottom: 20px; border-left: 3px solid #444; padding-left: 15px; }
+        .highlight { color: #8da9ff; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="npcs.html" class="nav-item active">NPC</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>税收官 (Tax Collector)</h1>
+            </header>
+            <p class="quote">“快点，时间就是金钱，而且你现在正同时浪费着这两样东西！”</p>
+
+            <section class="content-section">
+                <h2 class="section-h2">获取方式</h2>
+                <p>税收官是一个<b>困难模式</b> NPC。他不会自然生成，必须通过特殊手段救赎：</p>
+                <ul>
+                    <li><b>位置：</b>前往 <span class="highlight">地狱 (The Underworld)</span>。</li>
+                    <li><b>目标：</b>寻找随机生成的特殊敌怪 <b>痛苦亡魂 (Tortured Soul)</b>。</li>
+                    <li><b>救赎：</b>对他投掷 <span class="highlight">净化粉</span>。受影响后，他会变回税收官。只要有空房，他随后便会搬入。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心功能：征税</h2>
+                <p>税收官会随着时间推移自动向已入驻的其他城镇 NPC 征收税款：</p>
+                <div class="income-box">
+                    <ul>
+                        <li><b>征收率：</b>每个存活的 NPC 每分钟产出 <b>50 铜币</b>。</li>
+                        <li><b>上限：</b>他最多能存储 <b>10 金币</b>。一旦达到上限，他将停止收税，直到玩家领取。</li>
+                        <li><b>幸福度影响：</b>税收官的快乐程度会显著影响他收取的税额及存储上限。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">交互细节</h2>
+                <ul>
+                    <li><b>自卫能力：</b>他会使用<b>名贵手杖</b>近战攻击。</li>
+                    <li><b>人际关系：</b>他讨厌绝大多数人，但他很喜欢 <b>服饰商</b> 和 <b>派对女孩</b>。</li>
+                    <li><b>群系偏好：</b>他喜欢居住在 <b>雪原群系</b>，非常讨厌 <b>圣洁群系</b>。</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">冷知识</h2>
+                <p>税收官的设计参考了查尔斯·狄更斯的小说《圣诞颂歌》中的角色埃比尼泽·斯克鲁奇（Ebenezer Scrooge）。</p>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">税收官</div>
+            <div class="infobox-img">
+                <img src="图片/Tax_Collector.webp" alt="Tax Collector">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">类型</span><span>城镇 NPC</span></div>
+            <div class="infobox-row"><span class="infobox-label">生命值</span><span>250</span></div>
+            <div class="infobox-row"><span class="infobox-label">攻击</span><span>手杖</span></div>
+            <div class="infobox-row"><span class="infobox-label">内部 ID</span><span>441</span></div>
+        </aside>
+    </div>
+</body>
+</html>

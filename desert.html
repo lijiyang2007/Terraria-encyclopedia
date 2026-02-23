@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沙漠 - 泰拉瑞亚百科</title>
+    <link rel="stylesheet" href="样式.css">
+    <script src="js.js"></script>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        .wiki-container { 
+            flex: 1;
+            display: flex; 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 40px auto; 
+            padding: 0 40px;
+            min-width: 0;
+        }
+
+        .main-content { 
+            flex: 3; 
+            min-width: 0;
+        }
+        
+        .infobox { 
+            flex: 1; 
+            min-width: 300px; 
+            background: #1a1a1a; 
+            border: 1px solid #5a443a; 
+            padding: 15px; 
+            align-self: flex-start; 
+            position: sticky; 
+            top: 20px;
+        }
+
+        .infobox-title { background: #4d4421; color: #ffcc00; text-align: center; padding: 10px; font-weight: bold; font-size: 20px; margin: -15px -15px 15px -15px; }
+        .infobox-img { text-align: center; background: #0c0c0c; padding: 15px; border: 1px solid #333; margin-bottom: 15px; }
+        .infobox-img img { max-width: 100%; height: auto; image-rendering: pixelated; }
+
+        .content-section { margin-bottom: 40px; padding: 25px; border-left: 6px solid #da9100; background: rgba(218, 145, 0, 0.05); }
+        .section-h2 { color: #da9100; font-size: 24px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+
+        .loot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 15px; margin-top: 15px; }
+        .loot-item { background: #111; border: 1px solid #333; padding: 10px; border-radius: 4px; font-size: 13px; border-top: 2px solid #ffcc00; }
+        
+        .mob-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #111; }
+        .mob-table th, .mob-table td { border: 1px solid #333; padding: 12px; text-align: left; font-size: 14px; }
+        .mob-table th { background: #2a261a; color: #ffcc00; }
+        
+        .weather-box { border: 1px solid #da9100; padding: 15px; background: rgba(255, 204, 0, 0.1); margin-top: 15px; }
+        .highlight { color: #ffcc00; font-weight: bold; }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 30px;
+                max-width: 95%;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 30px;
+            }
+            .loot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wiki-title { width: 100%; padding: 15px; }
+            .nav-item { flex: 1; text-align: center; padding: 10px; white-space: nowrap !important; }
+
+            .wiki-container {
+                flex-direction: column-reverse;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .infobox {
+                width: 100% !important;
+                position: static !important;
+                margin-bottom: 20px;
+            }
+            .loot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .mob-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="wiki-title">泰拉瑞亚百科</div>
+        <a href="index.html" class="nav-item">首页</a>
+        <a href="biomes.html" class="nav-item active">生物群系</a>
+    </nav>
+
+    <div class="wiki-container">
+        <div class="main-content">
+            <header class="wiki-header">
+                <h1>沙漠 (Desert)</h1>
+            </header>
+
+            <section class="content-section">
+                <h2 class="section-h2">概览</h2>
+                <p>沙漠生物群系由大量<b>沙块</b>组成。其地表相对平坦，但分布着致命的蚁狮。沙漠还包含极其广阔的<b>地下沙漠</b>，那里充满了砂岩和硬化沙，是巨大的资源库。</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">特殊天气：沙尘暴</h2>
+                <div class="weather-box">
+                    当大风天气发生时，沙漠会进入 <b>沙尘暴</b> 状态。此时能见度极低，玩家会被强风推行，且会出现强力敌怪（如沙鲨）。
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">独特敌怪</h2>
+                <table class="mob-table">
+                    <thead>
+                        <tr>
+                            <th>敌怪</th>
+                            <th>区域</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><b>蚁狮</b></td><td>地表</td><td>会向玩家喷射伤害极高的沙块。</td></tr>
+                        <tr><td><b>秃鹰</b></td><td>地表</td><td>平时处于栖息状态，被激怒后会俯冲攻击。</td></tr>
+                        <tr><td><b>蚁狮蜂</b></td><td>地下</td><td>飞行速度快，会发射毒刺。</td></tr>
+                        <tr><td><b>木乃伊</b></td><td><span class="highlight">困难模式</span></td><td>具有多种变种，掉落重要材料。</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-h2">核心资源</h2>
+                <div class="loot-grid">
+                    <div class="loot-item"><b>金字塔：</b>包含法老套装或神奇地毯。</div>
+                    <div class="loot-item"><b>仙人掌：</b>早期基础建筑和装备材料。</div>
+                    <div class="loot-item"><b>绿洲：</b>拥有独特植物和钓鱼产物。</div>
+                    <div class="loot-item"><b>琥珀：</b>地下沙漠隐藏的宝石资源。</div>
+                </div>
+            </section>
+        </div>
+
+        <aside class="infobox">
+            <div class="infobox-title">沙漠</div>
+            <div class="infobox-img">
+                <img src="图片/BiomeBannerDesert.webp" alt="Desert">
+            </div>
+            <div class="infobox-row"><span class="infobox-label">主要方块</span><span>沙块、硬化沙、砂岩</span></div>
+            <div class="infobox-row"><span class="infobox-label">群系晶塔</span><span>沙漠晶塔</span></div>
+            <div class="infobox-row"><span class="infobox-label">威胁等级</span><span>中等至高</span></div>
+        </aside>
+    </div>
+</body>
+</html>
